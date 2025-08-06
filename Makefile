@@ -1,0 +1,36 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: hbani-at <marvin@42.fr>                    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2025/07/05 10:56:41 by hbani-at          #+#    #+#              #
+#    Updated: 2025/08/06 20:39:45 by hbani-at         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+baba	= cc
+CFLAGS	= -Wall -Wextra -Werror
+NAME	= libft
+SRC	= ft_isalpha.c
+OBJ	= $(SRC:.c=.o)
+
+
+all: $(NAME)
+
+$(NAME): $(OBJ)
+	$(baba) $(CFLAGS) $(OBJ) -o $(NAME)
+
+%.o: %.c
+	$(baba) $(CFLAGS) -c $< -o $@
+
+clean:
+	rm -f $(OBJ)
+
+fclean: clean
+	rm -f $(NAME)
+
+re: fclean all
+
+.PHONY: all clean fclean
