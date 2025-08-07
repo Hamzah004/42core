@@ -13,15 +13,13 @@
 // #include <ctype.h>
 // #include <stdio.h>
 
-int	ft_isalpha(int arg)
+int	ft_isalpha(int c)
 {
-	if ((arg >= 97 && arg <= 122) || (arg >= 65 && arg <= 90))
-		return (1024);
-	return (0);
+		return ((c >= 97 && c <= 122) || (c >= 65 && c <= 90));
 }
 /*
 int main (void)
 {
-	printf("%d\n",isalpha(34));
-	printf("\n%d",ft_isalpha(90));
+	printf("original: %d\n",isalpha(34));
+	printf("me: %d\n",ft_isalpha(90));
 }*/

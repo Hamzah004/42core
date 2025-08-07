@@ -1,21 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hbani-at <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/06 20:41:53 by hbani-at          #+#    #+#             */
-/*   Updated: 2025/08/06 20:42:39 by hbani-at         ###   ########.fr       */
+/*   Created: 2025/08/07 14:22:08 by hbani-at          #+#    #+#             */
+/*   Updated: 2025/08/07 14:22:09 by hbani-at         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
-#include <stdio.h>
-#include <ctype.h>
+// #include <stdio.h>
+// #include <ctype.h>
 
-int	ft_isalpha(int c);
-int	ft_isdigit(int c);
-int	ft_isascii(int c);
-#endif
+int	ft_isdigit(int c)
+{
+	return (c >= '0' && c <= '9');
+}
+/*
+int	main(void)
+{
+	printf("me: %d\n",ft_isdigit('1'));
+	printf("original: %d\n",isdigit('1'));
+}*/
