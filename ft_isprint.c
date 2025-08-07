@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hbani-at <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/06 20:41:33 by hbani-at          #+#    #+#             */
-/*   Updated: 2025/08/06 20:41:34 by hbani-at         ###   ########.fr       */
+/*   Created: 2025/08/07 14:52:11 by hbani-at          #+#    #+#             */
+/*   Updated: 2025/08/07 14:57:26 by hbani-at         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isalpha(int c)
+int	ft_isprint(int c)
 {
-	return ((c >= 97 && c <= 122) || (c >= 65 && c <= 90));
+	return (c >= 20 && c <= 126);
 }
 /*
-int main (void)
+int	main(void)
 {
-	printf("original: %d\n",isalpha(34));
-	printf("me: %d\n",ft_isalpha(90));
+	printf("Me: %d\n",ft_isprint('a'));
+	printf("Original: %d",isprint('a'));
 }*/

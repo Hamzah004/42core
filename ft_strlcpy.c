@@ -1,24 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isascii.c                                       :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hbani-at <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/07 15:02:41 by hbani-at          #+#    #+#             */
-/*   Updated: 2025/08/07 15:02:43 by hbani-at         ###   ########.fr       */
+/*   Created: 2025/08/07 15:36:36 by hbani-at          #+#    #+#             */
+/*   Updated: 2025/08/07 19:17:45 by hbani-at         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isascii(int c)
+size_t	ft_strlen(const char *s);
+
+size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 {
-	return (c >= 0 && c <= 127);
+	size_t	i;
+
+	i = 0;
+	if (size < 0)
+	{
+		while (src[i] && i < size - 1)
+		{
+			dest[i] = src[i];
+			i++;
+		}
+		dest[i] = '\0';
+	}
+	return (ft_strlen(src));
 }
+
 /*
 int	main(void)
 {
-	printf("Me: %d\n",ft_isascii('1'));
-	printf("Original: %d\n",isascii('a'));
+	char	src[] = "is";
+	char	dest[15] = "this";
+
+	printf("Me: %lu\n", ft_strlcpy(dest, src, sizeof(dest)));
+	printf(	"Original: %lu\n", strlcpy(dest, src, 0));
+	printf("dest: %s", dest);
 }*/

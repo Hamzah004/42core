@@ -1,24 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hbani-at <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/06 20:41:33 by hbani-at          #+#    #+#             */
-/*   Updated: 2025/08/06 20:41:34 by hbani-at         ###   ########.fr       */
+/*   Created: 2025/08/07 15:23:22 by hbani-at          #+#    #+#             */
+/*   Updated: 2025/08/07 15:32:51 by hbani-at         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isalpha(int c)
+size_t	ft_strlen(const char *s)
 {
-	return ((c >= 97 && c <= 122) || (c >= 65 && c <= 90));
+	size_t	i;
+
+	i = 0;
+	while (s[i] != '\0')
+	{
+		i++;
+	}
+	return (i);
 }
 /*
-int main (void)
+int	main(void)
 {
-	printf("original: %d\n",isalpha(34));
-	printf("me: %d\n",ft_isalpha(90));
+	printf("Me: %zu\n",ft_strlen("this is good"));
+	printf("Original: %zu\n",strlen("this is good"));
 }*/
