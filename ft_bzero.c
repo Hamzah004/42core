@@ -1,34 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hbani-at <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/07 22:46:05 by hbani-at          #+#    #+#             */
-/*   Updated: 2025/08/09 17:57:44 by hbani-at         ###   ########.fr       */
+/*   Created: 2025/08/09 18:28:26 by hbani-at          #+#    #+#             */
+/*   Updated: 2025/08/09 18:29:09 by hbani-at         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+void	ft_bzero(void *s, size_t n)
 {
-	int	i;
+	size_t	i;
+	unsigned char	*array;
 
 	i = 0;
-	while (s[i] != '\0')
+	array = (char *) s;
+	while (i < n)
 	{
-		if (s[i] == (char)c)
-			return ((char *)&s[i]);
+		array[i] = '\0';
 		i++;
 	}
-	if (c == '\0')
-		return ((char *)&s[i]);
-	return (NULL);
-}
-
-int	main(void)
-{
-	printf("%s\n", ft_strchr("this", 'r'));
+	return (array);
 }
