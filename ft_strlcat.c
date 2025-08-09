@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stddef.h>
 
 size_t	ft_strlen(const char *s);
 
@@ -33,13 +32,13 @@ size_t	ft_strlcat(char *dest, const char *src, size_t size)
 	}
 	return (dest_length + src_length);
 }
-
+/*
 int	main(void)
 {
-	char src[] = "is";
-	char dest[12] = "this is yazan";
-	printf("Me: %lu\n", ft_strlcat(dest, src, sizeof(dest))); // 15
-	printf(	"Original: %lu\n", strlcat(dest, src, sizeof(dest)));
-	printf("dest: %s",dest);
+	char	src[] = "is";
+	char	dest[12] = "this is yazan";
 
-}
+	printf("Me: %lu\n", ft_strlcat(dest, src, sizeof(dest))); // 15
+	printf("Original: %lu\n", strlcat(dest, src, sizeof(dest)));
+	printf("dest: %s", dest);
+}*/
