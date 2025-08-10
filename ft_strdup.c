@@ -19,13 +19,12 @@ char	*ft_strdup(const char *s)
 	size_t	s_size;
 
 	s_size = ft_strlen(s) + 1;
-	dup = (char *)malloc(s_size); // 1 * s_size
+	dup = (char *)malloc(s_size);
 	if (!dup)
 		return (0);
 	ft_strlcpy(dup, s, s_size);
 	return (dup);
 }
-
 /*
 // Test function to compare your implementation with expected behavior
 void	test_strlcpy(const char *test_name, char *dest1, char *dest2,

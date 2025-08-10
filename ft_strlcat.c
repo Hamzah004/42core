@@ -22,8 +22,8 @@ size_t	ft_strlcat(char *dest, const char *src, size_t size)
 	size_t	src_length;
 
 	i = 0;
-	dest_length = ft_strlen(dest); // 13
-	src_length = ft_strlen(src); // 2
+	dest_length = ft_strlen(dest);
+	src_length = ft_strlen(src);
 	if (size <= dest_length)
 		return (size + src_length);
 	while (src[i] != '\0' && (dest_length + i) < (size - 1))
@@ -33,7 +33,7 @@ size_t	ft_strlcat(char *dest, const char *src, size_t size)
 	}
 	return (dest_length + src_length);
 }
-
+/*
 int	main(void)
 {
 	char	src[] = "is";
@@ -42,4 +42,4 @@ int	main(void)
 	printf("Me: %zu\n", ft_strlcat(dest, src, sizeof(dest)));
 	printf("Original: %zu\n", strlcat(dest, src, sizeof(dest)));
 	printf("dest: %s", dest);
-}
+}*/
