@@ -10,9 +10,9 @@
 #                                                                              #
 # **************************************************************************** #
 
-baba	= cc
+CC	= cc
 CFLAGS	= -Wall -Wextra -Werror
-NAME	= libft
+NAME	= libft.a
 SRC	= ft_isalpha.c ft_isdigit.c
 OBJ	= $(SRC:.c=.o)
 
@@ -20,10 +20,9 @@ OBJ	= $(SRC:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(baba) $(CFLAGS) $(OBJ) -o $(NAME)
-
+	ar asc $(NAME) $(OBJ)
 %.o: %.c
-	$(baba) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	rm -f $(OBJ)

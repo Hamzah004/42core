@@ -25,12 +25,8 @@ void	*ft_memset(void *s, int c, size_t n)
 		i++;
 	}
 	return (array);
-
 }
-
-/* ************************************************************************** */
-/*                          ft_memset.c - TEST ANALYSIS                      */
-/* ************************************************************************** */
+/*
 
 // Test function to compare your implementation with standard memset
 void test_memset(const char *test_name, size_t size, int fill_char, const char *initial_data)
@@ -142,4 +138,4 @@ int main(void)
     printf("Addresses match: %s\n", (result == buffer) ? "✅ YES" : "❌ NO");
     
     return 0;
-}
+}*/
