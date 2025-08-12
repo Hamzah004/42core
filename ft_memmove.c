@@ -17,7 +17,7 @@ void	*ft_memmove(void *dest, void const *src, size_t n)
 	unsigned char		*dest_char;
 	const unsigned char	*src_char;
 
-	if (!dest || !src)
+	if (dest == NULL || src == NULL)
 		return (NULL);
 	if (dest < src)
 		return (ft_memcpy(dest, src, n));
@@ -30,7 +30,7 @@ void	*ft_memmove(void *dest, void const *src, size_t n)
 	}
 	return (dest);
 }
-/*
+
 // Test result comparison
 int	test_compare(const char *test_name, void *result, void *expected,
 		size_t size, int should_pass) {
@@ -374,4 +374,4 @@ int	main(void) {
 	printf("\nRun these tests and compare output with standard memmove!\n");
 
 	return (0);
-}*/
+}
