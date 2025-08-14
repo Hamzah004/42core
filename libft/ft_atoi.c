@@ -16,9 +16,9 @@ int	ft_atoi(const char *nptr)
 {
 	int	i;
 	int	sign;
-	int	data;
+	int	number;
 
-	data = 0;
+	number = 0;
 	i = 0;
 	sign = 1;
 	while (nptr[i] == ' ' || (nptr[i] >= 9 && nptr[i] <= 13))
@@ -31,17 +31,17 @@ int	ft_atoi(const char *nptr)
 			sign *= -1;
 		i++;
 	}
-	while (ft_isdigit(nptr[i]))
+	while (nptr[i] && nptr[i] >= '0' && nptr[i] <= '9')
 	{
-		data = data * 10 + (nptr[i] - '0');
+		number = number * 10 + (nptr[i] - '0');
 		i++;
 	}
-	return (data * sign);
+	return (number * sign);
 }
 /*
 int	main(void)
 {
-	char	x[] = "1-+2A -1234ab569";
+	char	x[] = "-21234ab569";
 	int		i;
 
 	i = ft_atoi(x);

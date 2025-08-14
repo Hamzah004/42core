@@ -35,7 +35,9 @@ void	*ft_memmove(void *dest, void const *src, size_t n)
 int	main(void)
 {
 	char	array[] = "1";
-	char	*dest = ft_memmove(array + 1, array, 4);
+	char	*dest;
+
+	dest = ft_memmove(array + 1, array, 4);
 	printf("%s", dest);
 }
 */
