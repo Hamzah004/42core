@@ -11,30 +11,26 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stddef.h>
 #include <stdio.h>
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	size_t	i;
-	char	*new;
-	size_t	s1_size;
-	size_t	s2_size;
+	char	*new_string;
+	size_t	s1_len;
+	size_t	s2_len;
 
-	i = 0;
-	s1_size = ft_strlen(s1);
-	s2_size = ft_strlen(s2);
-	new = malloc(s1_size + s2_size + 1);
-	while (s1_size--)
-	{
-		new[s2_size] = s1[i];
-		i++;
-		s2_size++;
-	}
-	new[i] = '\0';
-	return (new);
+	if (!s1 || !s2)
+		return (NULL);
+	s1_len = ft_strlen(s1);
+	s2_len = ft_strlen(s2);
+	new_string = (char *)malloc(s1_len + s2_len + 1);
+	ft_strlcpy(new_string, s1, s1_len + 1);
+	ft_strlcpy(new_string + s1_len, s2, s2_len + 1);
+	return (new_string);
 }
-
-int	main()
+/*
+int	main(void)
 {
-	printf("%s",ft_strjoin("hamzah ", "bani-ata"));
-}
+	printf("%s", ft_strjoin("hamzah ", "bani-ata"));
+}*/
