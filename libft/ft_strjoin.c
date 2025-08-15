@@ -1,42 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hbani-at <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/15 15:48:39 by hbani-at          #+#    #+#             */
-/*   Updated: 2025/08/15 16:19:36 by hbani-at         ###   ########.fr       */
+/*   Created: 2025/08/15 19:24:38 by hbani-at          #+#    #+#             */
+/*   Updated: 2025/08/15 19:53:08 by hbani-at         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stddef.h>
 #include <stdio.h>
-#include <stdlib.h>
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char	*str;
 	size_t	i;
-	size_t	space_left;
+	char	*new;
+	size_t	s1_size;
+	size_t	s2_size;
 
-	if (start >= ft_strlen(s))
-		return (ft_strdup(""));
-	space_left = (ft_strlen(&s[start]));
 	i = 0;
-	str = (char *)malloc(space_left + 1);
-	while (s[start] && len--)
+	s1_size = ft_strlen(s1);
+	s2_size = ft_strlen(s2);
+	new = malloc(s1_size + s2_size + 1);
+	while (s1_size--)
 	{
-		str[i] = s[start];
+		new[s2_size] = s1[i];
 		i++;
-		start++;
+		s2_size++;
 	}
-	str[i] = '\0';
-	return (str);
+	new[i] = '\0';
+	return (new);
 }
-/*
-int	main(void)
+
+int	main()
 {
-	printf("me: %s\n", ft_substr("hamzah", 2, 2));
-}*/
+	printf("%s",ft_strjoin("hamzah ", "bani-ata"));
+}
