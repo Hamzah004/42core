@@ -25,6 +25,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	s1_len = ft_strlen(s1);
 	s2_len = ft_strlen(s2);
 	new_string = (char *)malloc(s1_len + s2_len + 1);
+	if (!new_string)
+		return (NULL);
 	ft_strlcpy(new_string, s1, s1_len + 1);
 	ft_strlcpy(new_string + s1_len, s2, s2_len + 1);
 	return (new_string);

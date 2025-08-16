@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-static int	get_number_length(int n)
+static int	get_number_length(long n)
 {
 	int	len;
 
@@ -34,6 +34,8 @@ char	*ft_itoa(int n)
 
 	sign = 0;
 	number = n;
+	if (n == 0)
+		return (ft_strdup("0"));
 	if (number < 0)
 		sign = 1;
 	if (sign)
