@@ -39,7 +39,8 @@ SRC := ft_atoi.c \
        ft_tolower.c \
        ft_toupper.c \
        ft_substr.c \
-       ft_strjoin.c
+       ft_strjoin.c \
+       ft_strmapi.c
 OBJ := $(SRC:.c=.o)
 
 all: $(NAME)
