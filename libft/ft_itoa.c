@@ -6,7 +6,7 @@
 /*   By: hbani-at <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/11 19:00:20 by hbani-at          #+#    #+#             */
-/*   Updated: 2025/08/11 23:10:56 by hbani-at         ###   ########.fr       */
+/*   Updated: 2025/08/17 19:13:04 by hbani-at         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,18 @@ static int	get_number_length(long n)
 		len++;
 	}
 	return (len);
+}
+
+void	no_space(char *s, int sign, int len, long number)
+{
+	if (sign)
+		s[0] = '-';
+	s[len + sign] = '\0';
+	while (number > 0)
+	{
+		s[(len--) + sign - 1] = number % 10 + '0';
+		number /= 10;
+	}
 }
 
 char	*ft_itoa(int n)
@@ -42,14 +54,9 @@ char	*ft_itoa(int n)
 		number = -number;
 	len = get_number_length(number);
 	s = (char *)malloc(len + sign + 1);
-	if (sign)
-		s[0] = '-';
-	s[len + sign] = '\0';
-	while (number > 0)
-	{
-		s[(len--) + sign - 1] = number % 10 + '0';
-		number /= 10;
-	}
+	if (!s)
+		return (NULL);
+	no_space(s, sign, len, number);
 	return (s);
 }
 /*

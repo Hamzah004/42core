@@ -6,7 +6,7 @@
 /*   By: hbani-at <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/10 23:03:03 by hbani-at          #+#    #+#             */
-/*   Updated: 2025/08/10 23:14:11 by hbani-at         ###   ########.fr       */
+/*   Updated: 2025/08/17 18:46:24 by hbani-at         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	unsigned char	*s1_temp;
 	unsigned char	*s2_temp;
 
-	if (!s1 || !s2)
+	if (!s1 && !s2)
 		return (0);
 	i = 0;
 	s1_temp = (unsigned char *)s1;

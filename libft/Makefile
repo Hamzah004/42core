@@ -6,7 +6,7 @@
 #    By: hbani-at <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/14 18:17:03 by hbani-at          #+#    #+#              #
-#    Updated: 2025/08/14 18:34:30 by hbani-at         ###   ########.fr        #
+#    Updated: 2025/08/17 17:47:47 by hbani-at         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,7 +40,9 @@ SRC := ft_atoi.c \
        ft_toupper.c \
        ft_substr.c \
        ft_strjoin.c \
-       ft_strmapi.c
+       ft_strmapi.c \
+       ft_striteri.c
+
 OBJ := $(SRC:.c=.o)
 
 all: $(NAME)

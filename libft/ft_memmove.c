@@ -6,7 +6,7 @@
 /*   By: hbani-at <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/10 02:15:48 by hbani-at          #+#    #+#             */
-/*   Updated: 2025/08/10 02:21:42 by hbani-at         ###   ########.fr       */
+/*   Updated: 2025/08/17 17:58:54 by hbani-at         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	*ft_memmove(void *dest, void const *src, size_t n)
 	unsigned char	*src_temp;
 	unsigned char	*dest_temp;
 
-	if (src == NULL || dest == NULL)
+	if (src == NULL && dest == NULL)
 		return (NULL);
 	if (dest < src)
 		return (ft_memcpy(dest, src, n));

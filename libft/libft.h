@@ -6,7 +6,7 @@
 /*   By: hbani-at <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/06 20:41:53 by hbani-at          #+#    #+#             */
-/*   Updated: 2025/08/11 23:10:57 by hbani-at         ###   ########.fr       */
+/*   Updated: 2025/08/17 17:42:43 by hbani-at         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,5 +46,5 @@ char	*ft_itoa(int n);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int i, char c));
-
+void	ft_triteri(char *s, void (*f)(unsigned int i, char *c));
 #endif
