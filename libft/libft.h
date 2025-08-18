@@ -14,11 +14,11 @@
 # define LIBFT_H
 
 # include <ctype.h>
-#include <unistd.h>
 # include <stddef.h>
 # include <stdio.h>
 # include <stdlib.h>
 # include <string.h>
+# include <unistd.h>
 
 size_t	ft_strlen(const char *s);
 int		ft_isalpha(int c);
@@ -51,4 +51,5 @@ void	ft_triteri(char *s, void (*f)(unsigned int i, char *c));
 void	ft_putchar_fd(char c, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putstr_fd(char *s, int fd);
+void	ft_putnbr_fd(int n, int fd);
 #endif
