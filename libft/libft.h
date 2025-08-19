@@ -6,7 +6,7 @@
 /*   By: hbani-at <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/06 20:41:53 by hbani-at          #+#    #+#             */
-/*   Updated: 2025/08/17 21:52:20 by hbani-at         ###   ########.fr       */
+/*   Updated: 2025/08/19 21:08:01 by hbani-at         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,4 +52,6 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
+void	ft_striteri(char *s, void (*f)(unsigned int i, char *c));
+char	*ft_strtrim(char const *s1, char const *set);
 #endif

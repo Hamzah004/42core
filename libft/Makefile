@@ -6,7 +6,7 @@
 #    By: hbani-at <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/14 18:17:03 by hbani-at          #+#    #+#              #
-#    Updated: 2025/08/17 17:47:47 by hbani-at         ###   ########.fr        #
+#    Updated: 2025/08/19 21:10:07 by hbani-at         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,6 +41,8 @@ SRC := ft_atoi.c \
        ft_substr.c \
        ft_strjoin.c \
        ft_strmapi.c \
+       ft_striteri.c \
+       ft_strtrim.c \
        ft_striteri.c \
        ft_putchar_fd.c \
        ft_putstr_fd.c \
