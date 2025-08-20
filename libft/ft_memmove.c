@@ -6,7 +6,7 @@
 /*   By: hbani-at <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/10 02:15:48 by hbani-at          #+#    #+#             */
-/*   Updated: 2025/08/17 17:58:54 by hbani-at         ###   ########.fr       */
+/*   Updated: 2025/08/20 21:49:08 by hbani-at         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ int	main(void)
 	char	array[] = "1";
 	char	*dest;
 
-	dest = ft_memmove(array + 1, array, 4);
+	dest = ft_memmove(array + 1, array, 1);
 	printf("%s", dest);
-}
-*/
+}*/
