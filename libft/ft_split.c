@@ -6,7 +6,7 @@
 /*   By: hbani-at <hbani-at@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/21 15:39:42 by hbani-at          #+#    #+#             */
-/*   Updated: 2025/08/21 19:47:34 by hbani-at         ###   ########.fr       */
+/*   Updated: 2025/08/21 20:57:02 by hbani-at         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include <stdint.h>
 #include <stdio.h>
 
-static size_t count_word(char const *s, char c)
+static size_t	count_word(char const *s, char c)
 {
 	size_t	count;
 	size_t	i;
@@ -83,8 +83,7 @@ char	**ft_split(char const *s, char c)
 		return (NULL);
 	return (result);
 }
-
-
+/*
 int	main(void)
 {
 	size_t		i;
@@ -99,4 +98,4 @@ int	main(void)
 		printf("%s\n", e[i]);
 		i++;
 	}
-}
+}*/
