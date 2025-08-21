@@ -6,7 +6,7 @@
 /*   By: hbani-at <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/06 20:41:53 by hbani-at          #+#    #+#             */
-/*   Updated: 2025/08/21 19:27:27 by hbani-at         ###   ########.fr       */
+/*   Updated: 2025/08/21 21:56:37 by hbani-at         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,13 @@
 # include <stdlib.h>
 # include <string.h>
 # include <unistd.h>
+
+typedef struct s_list
+{
+	void	*content;
+	struc ts_list	*next;
+}	s_list;
+
 
 size_t	ft_strlen(const char *s);
 int		ft_isalpha(int c);
