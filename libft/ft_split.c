@@ -6,7 +6,7 @@
 /*   By: hbani-at <hbani-at@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/21 15:39:42 by hbani-at          #+#    #+#             */
-/*   Updated: 2025/08/21 17:56:26 by hbani-at         ###   ########.fr       */
+/*   Updated: 2025/08/21 19:47:34 by hbani-at         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,11 +43,11 @@ static void	free_result(char **result, size_t count)
 	free(result);
 }
 
-static int	fill_result(char **result, const char *s, char c)
+static int	fill_result(char **result, char const *s, char c)
 {
-	int	i;
-	int	j;
-	int	start;
+	size_t	i;
+	size_t	j;
+	size_t	start;
 
 	i = 0;
 	j = 0;
@@ -74,6 +74,8 @@ char	**ft_split(char const *s, char c)
 {
 	char	**result;
 
+	if (!s)
+		return (NULL);
 	result = malloc(sizeof(char *) * count_words(s, c) + 1);
 	if (!result)
 		return (NULL);
@@ -82,6 +84,7 @@ char	**ft_split(char const *s, char c)
 	return (result);
 }
 
+/*
 int	main(void)
 {
 	size_t		i;
@@ -96,4 +99,4 @@ int	main(void)
 		printf("%s\n", e[i]);
 		i++;
 	}
-}
+}*/

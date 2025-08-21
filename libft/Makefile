@@ -6,7 +6,7 @@
 #    By: hbani-at <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/14 18:17:03 by hbani-at          #+#    #+#              #
-#    Updated: 2025/08/19 21:10:07 by hbani-at         ###   ########.fr        #
+#    Updated: 2025/08/21 19:26:53 by hbani-at         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,7 +47,8 @@ SRC := ft_atoi.c \
        ft_putchar_fd.c \
        ft_putstr_fd.c \
        ft_putendl_fd.c \
-       ft_putnbr_fd.c
+       ft_putnbr_fd.c \
+       ft_split.c
 
 OBJ := $(SRC:.c=.o)
 
