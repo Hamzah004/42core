@@ -22,17 +22,14 @@ static size_t count_word(char const *s, char c)
 
 	i = 0;
 	count = 0;
-	while (s[i] != '\0')
+	while (s[i])
 	{
-		if (s[i] != c)
-		{
-		while (s[i] != c)
-		{
+		while (s[i] == c)
 			i++;
-		}
+		if (s[i] != '\0')
 			count++;
-		}
-		i++;
+		while (s[i] != '\0' && s[i] != c)
+			i++;
 	}
 	return (count);
 }
@@ -87,7 +84,7 @@ char	**ft_split(char const *s, char c)
 	return (result);
 }
 
-/*
+
 int	main(void)
 {
 	size_t		i;
@@ -102,4 +99,4 @@ int	main(void)
 		printf("%s\n", e[i]);
 		i++;
 	}
-}*/
+}
