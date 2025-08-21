@@ -15,21 +15,24 @@
 #include <stdint.h>
 #include <stdio.h>
 
-static size_t	count_words(char const *s, char c)
+static size_t count_word(char const *s, char c)
 {
 	size_t	count;
 	size_t	i;
 
-	count = 0;
 	i = 0;
-	while (s[i])
+	count = 0;
+	while (s[i] != '\0')
 	{
-		while (s[i] == c)
+		if (s[i] != c)
+		{
+		while (s[i] != c)
+		{
 			i++;
-		if (s[i] != '\0')
+		}
 			count++;
-		while (s[i] && s[i] != c)
-			i++;
+		}
+		i++;
 	}
 	return (count);
 }
@@ -76,7 +79,7 @@ char	**ft_split(char const *s, char c)
 
 	if (!s)
 		return (NULL);
-	result = malloc(sizeof(char *) * count_words(s, c) + 1);
+	result = malloc(sizeof(char *) * (count_word(s, c) + 1));
 	if (!result)
 		return (NULL);
 	if (!fill_result(result, s, c))
