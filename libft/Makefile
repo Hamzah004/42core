@@ -6,7 +6,7 @@
 #    By: hbani-at <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/14 18:17:03 by hbani-at          #+#    #+#              #
-#    Updated: 2025/08/24 20:34:04 by hbani-at         ###   ########.fr        #
+#    Updated: 2025/08/24 21:18:20 by hbani-at         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,7 +55,7 @@ BONUS_SRC := ft_lstnew.c \
 	ft_lstsize.c \
 	ft_lstlast.c \
 	ft_lstadd_back.c \
-	# ft_lstdelone \
+	ft_lstdelone.c \
 	# ft_lstclear \
 	# ft_lstiter \
 	# ft_lstmap \
