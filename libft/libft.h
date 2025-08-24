@@ -6,7 +6,7 @@
 /*   By: hbani-at <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/06 20:41:53 by hbani-at          #+#    #+#             */
-/*   Updated: 2025/08/24 17:49:02 by hbani-at         ###   ########.fr       */
+/*   Updated: 2025/08/24 20:16:19 by hbani-at         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,5 +65,6 @@ char				*ft_strtrim(char const *s1, char const *set);
 char				**ft_split(char const *s, char c);
 t_list				*ft_lstnew(void *content);
 void				ft_lstadd_front(t_list **lst, t_list *new);
-int ft_lstsize(t_list *lst);
+int					ft_lstsize(t_list *lst);
+t_list				*ft_lstlast(t_list *lst);
 #endif
