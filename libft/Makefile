@@ -6,7 +6,7 @@
 #    By: hbani-at <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/14 18:17:03 by hbani-at          #+#    #+#              #
-#    Updated: 2025/08/21 22:14:08 by hbani-at         ###   ########.fr        #
+#    Updated: 2025/08/24 17:49:05 by hbani-at         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,14 +51,14 @@ SRC := ft_atoi.c \
        ft_split.c
 
 BONUS_SRC := ft_lstnew.c \
-	ft_lstadd_front \
-	ft_lstsize \
-	ft_lstlast \
-	ft_lstadd_back \
-	ft_lstdelone \
-	ft_lstclear \
-	ft_lstiter \
-	ft_lstmap \
+	ft_lstadd_front.c \
+	ft_lstsize.c \
+	# ft_lstlast \
+	# ft_lstadd_back \
+	# ft_lstdelone \
+	# ft_lstclear \
+	# ft_lstiter \
+	# ft_lstmap \
 
 OBJ := $(SRC:.c=.o)
 BONUS_OBJ := $(BONUS_SRC:.c=.o)
@@ -68,8 +68,8 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	ar rcs $(NAME) $(OBJ)
 
-bonus: $(BONUS_OBJ)
-	ar rcs $(NAME) $(BONUS_OBJ)
+bonus: $(OBJ) $(BONUS_OBJ)
+	ar rcs $(NAME) $(OBJ) $(BONUS_OBJ)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@

@@ -1,31 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hbani-at <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: hbani-at <hbani-at@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/07 15:23:22 by hbani-at          #+#    #+#             */
-/*   Updated: 2025/08/24 15:39:10 by hbani-at         ###   ########.fr       */
+/*   Created: 2025/08/24 15:56:50 by hbani-at          #+#    #+#             */
+/*   Updated: 2025/08/24 17:33:11 by hbani-at         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
+void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	size_t	i;
-
-	i = 0;
-	while (s[i] != '\0')
-	{
-		i++;
-	}
-	return (i);
+	new->next = *lst;
+	*lst = new;
 }
-/*
-int	main(void)
-{
-	printf("Me: %zu\n",ft_strlen("this is good"));
-	printf("Original: %zu\n",strlen("this is good"));
-}*/
