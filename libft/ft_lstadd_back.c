@@ -6,7 +6,7 @@
 /*   By: hbani-at <hbani-at@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/24 20:18:51 by hbani-at          #+#    #+#             */
-/*   Updated: 2025/08/24 21:13:54 by hbani-at         ###   ########.fr       */
+/*   Updated: 2025/08/25 12:12:05 by hbani-at         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,6 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 		return ;
 	}
 	last = *lst;
-	while (last->next != NULL)
-	{
-		last = last->next;
-	}
+	ft_lstlast(last);
 	last->next = new;
 }
