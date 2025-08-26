@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-void ft_lstdelone(t_list *lst, void (*del)(void*))
+void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
 	if (!lst)
 		return ;
@@ -20,12 +20,12 @@ void ft_lstdelone(t_list *lst, void (*del)(void*))
 	free(lst);
 }
 /*
-void del(void *con)
+void	del(void *con)
 {
 	free(con);
 }*/
 /*
-int main()
+int	main(void)
 {
 	t_list	*node1 = ft_lstnew(ft_strdup("hello"));
 	t_list	*lst = node1;

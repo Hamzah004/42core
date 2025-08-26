@@ -29,9 +29,14 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 /*
 int	main(void)
 {
-	char src[] = "Hkdjhdsfkjdshello, World!";
-
-	ft_memcpy(src + 5, src, 13);
-	printf("Copied string: %s\n", src);
+	int	number[] = {1,2,3,4};
+	int	new[] = {};
+	ft_memcpy(new, number,sizeof(number));
+	int	i  = 0;
+	while (i < 4)
+	{
+	printf("%d", new[i]);
+		i++;
+	}
 	return (0);
 }*/
