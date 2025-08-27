@@ -6,14 +6,15 @@
 #    By: hbani-at <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/14 18:17:03 by hbani-at          #+#    #+#              #
-#    Updated: 2025/08/24 21:18:20 by hbani-at         ###   ########.fr        #
+#    Updated: 2025/08/27 17:11:59 by hbani-at         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
+<<<<<<< Updated upstream
 NAME := libft.a
 CC := cc
 CFLAGS := -Wall -Werror -Wextra
-SRC = ft_atoi.c \
+SRC := ft_atoi.c \
        ft_bzero.c \
        ft_calloc.c \
        ft_isalnum.c \
@@ -65,7 +66,6 @@ BONUS_OBJ := $(BONUS_SRC:.c=.o)
 
 all: $(NAME)
 
-# Conditional library creation
 ifeq ($(filter bonus, $(MAKECMDGOALS)), bonus)
 $(NAME): $(OBJ) $(BONUS_OBJ)
 	ar rcs $(NAME) $(OBJ) $(BONUS_OBJ)
@@ -87,4 +87,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all bonus clean fclean re
+.PHONY: all clean fclean bonus re
