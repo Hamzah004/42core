@@ -6,14 +6,14 @@
 #    By: hbani-at <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/14 18:17:03 by hbani-at          #+#    #+#              #
-#    Updated: 2025/08/28 18:00:31 by hbani-at         ###   ########.fr        #
+#    Updated: 2025/08/28 19:53:35 by hbani-at         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 NAME := libft.a
 CC := cc
-CFLAGS := -Wall -Werror -Wextra -g
+CFLAGS := -Wall -Werror -Wextra
 SRC := ft_atoi.c \
        ft_bzero.c \
        ft_calloc.c \
@@ -70,6 +70,8 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	ar rcs $(NAME) $(OBJ)
 
+%.o : %.c
+	$(CC) $(CFLAGS) -c $< -o $@
 
 bonus: $(BONUS_MARKER)
 
