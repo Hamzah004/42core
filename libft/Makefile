@@ -6,14 +6,14 @@
 #    By: hbani-at <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/14 18:17:03 by hbani-at          #+#    #+#              #
-#    Updated: 2025/08/27 17:11:59 by hbani-at         ###   ########.fr        #
+#    Updated: 2025/08/28 18:00:31 by hbani-at         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-<<<<<<< Updated upstream
+
 NAME := libft.a
 CC := cc
-CFLAGS := -Wall -Werror -Wextra
+CFLAGS := -Wall -Werror -Wextra -g
 SRC := ft_atoi.c \
        ft_bzero.c \
        ft_calloc.c \
@@ -63,24 +63,22 @@ BONUS_SRC := ft_lstnew_bonus.c \
 
 OBJ := $(SRC:.c=.o)
 BONUS_OBJ := $(BONUS_SRC:.c=.o)
+BONUS_MARKER := .bonus_marker
 
 all: $(NAME)
 
-ifeq ($(filter bonus, $(MAKECMDGOALS)), bonus)
-$(NAME): $(OBJ) $(BONUS_OBJ)
-	ar rcs $(NAME) $(OBJ) $(BONUS_OBJ)
-else
 $(NAME): $(OBJ)
 	ar rcs $(NAME) $(OBJ)
-endif
 
-bonus: $(NAME)
 
-%.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+bonus: $(BONUS_MARKER)
+
+$(BONUS_MARKER): $(BONUS_OBJ) $(OBJ)
+	ar rcs $(NAME) $(OBJ) $(BONUS_OBJ)
+	touch $(BONUS_MARKER)
 
 clean:
-	rm -f $(OBJ) $(BONUS_OBJ)
+	rm -f $(OBJ) $(BONUS_OBJ) $(BONUS_MARKER)
 
 fclean: clean
 	rm -f $(NAME)

@@ -10,17 +10,16 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "libft.h"
-#include <sys/stat.h>
 #include <fcntl.h>
+#include <sys/stat.h>
 
 void	ft_putchar_fd(char c, int fd)
 {
 	write(fd, &c, 1);
 }
 /*
-int main(void)
+int	main(void)
 {
 	char c = 'a';
 	int fd = open("hello.txt", O_CREAT | O_RDWR,0644);
