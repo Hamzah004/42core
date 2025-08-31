@@ -1,29 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libftprintf.h                                      :+:      :+:    :+:   */
+/*   ft_hexa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hbani-at <hbani-at@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/30 00:04:30 by hbani-at          #+#    #+#             */
-/*   Updated: 2025/08/31 21:01:00 by hbani-at         ###   ########.fr       */
+/*   Created: 2025/08/31 21:09:28 by hbani-at          #+#    #+#             */
+/*   Updated: 2025/08/31 21:09:29 by hbani-at         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFTPRINTF_H
-# define LIBFTPRINTF_H
+int	ft_hexa()
+{
 
-# include <ctype.h>
-# include <stddef.h>
-# include <stdio.h>
-# include <stdlib.h>
-# include <string.h>
-# include <unistd.h>
-#include <stdarg.h>
-
-int	ft_putchar(char c);
-int	ft_putstr(char	*s);
-int	ft_putnbr(int n);
-int	number_length(long number);
-int	ft_putnbr_unsigned(unsigned long number);
-#endif
+}

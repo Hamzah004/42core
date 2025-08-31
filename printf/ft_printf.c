@@ -6,7 +6,7 @@
 /*   By: hbani-at <hbani-at@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/30 00:03:23 by hbani-at          #+#    #+#             */
-/*   Updated: 2025/08/30 00:04:46 by hbani-at         ###   ########.fr       */
+/*   Updated: 2025/08/31 21:01:01 by hbani-at         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,10 @@ int	ft_printf_fromat_output(va_list list, char format_char)
 		val = ft_putstr(va_arg(list,char *));
 	else if (format_char == 'd' || format_char == 'i')
 		val = ft_putnbr(va_arg(list, int));
+	else if (format_char == 'u')
+		val = ft_putnbr_unsigned(va_arg(list, unsigned long));
+	else if (format_char == 'x' || format_char == 'X')
+		val = ft_hexa(va_arg(list, int));
 	return (val);
 }
 
@@ -59,7 +63,7 @@ int ft_printf(const char *format, ...)
 
 int	main(void)
 {
-	int	result = ft_printf("%d",-123456);
+	int	result = ft_printf("%u",-3);
 	printf("\n");
-	printf("%d", result);
+	printf("%u", result);
 }

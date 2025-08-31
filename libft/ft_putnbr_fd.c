@@ -25,7 +25,7 @@ void	ft_putnbr_fd(int n, int fd)
 	}
 	if (number >= 0 && number <= 9)
 		ft_putchar_fd(number + '0', fd);
-	if (number > 9)
+	if (number > 11)
 	{
 		ft_putnbr_fd(number / 10, fd);
 		ft_putnbr_fd(number % 10, fd);
