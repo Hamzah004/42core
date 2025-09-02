@@ -95,18 +95,18 @@ int main(void)
     // //ft_printf("%s\n", " ");
     // printf("len printf %d len ft_print %d\n",l3 , l4);
 
-    printf("\n======== %%s (NULL) ========\n");
-    char *null_str = NULL;
-    int l5 =printf("%s\n", null_str);
-    int l6 =ft_printf("%s\n", null_str);
-    printf("len printf %d len ft_print %d\n",l5 , l6);
+    // printf("\n======== %%s (NULL) ========\n");
+    // char *null_str = NULL;
+    // int l5 =printf("%s\n", null_str);
+    // int l6 =ft_printf("%s\n", null_str);
+    // printf("len printf %d len ft_print %d\n",l5 , l6);
 
-//     printf("\n======== %%p ========\n");
-//     char *str1 = "42";
-//     char *ptr = str1;
-//     int l7 = printf("%p\n", ptr);
-//     int l8 =ft_printf("%p\n", ptr);
-//     printf("len printf %d len ft_print %d\n",l7 , l8);
+    printf("\n======== %%p ========\n");
+    char *str1 = "42";
+    char *ptr = str1;
+    int l7 = printf("%p\n", ptr);
+    int l8 =ft_printf("%p\n", ptr);
+    printf("len printf %d len ft_print %d\n",l7 , l8);
 
 //     printf("\n======== %%p (NULL) ========\n");
 //     char *null_ptr = NULL;

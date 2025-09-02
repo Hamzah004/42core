@@ -14,9 +14,10 @@
 
 int ft_putpointer(unsigned long long number)
 {
+
     if (!number)
-       return (ft_putstr("(nil)"));
+      return (ft_putstr("(nil)"));
     ft_putstr("0x");
     ft_hexa(number,'x');
-    return (number_length_hexa(number + 2));
+    return (number_length_hexa(number) + 2);
 }
