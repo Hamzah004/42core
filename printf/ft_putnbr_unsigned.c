@@ -12,7 +12,7 @@
 
 #include "libftprintf.h"
 
-int	ft_putnbr_unsigned(unsigned long number)
+int	ft_putnbr_unsigned(unsigned int number)
 {
 	int	len;
 

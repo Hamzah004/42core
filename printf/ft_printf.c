@@ -20,33 +20,33 @@ int	ft_printf_fromat_output(va_list list, char format_char)
 
 	val = 0;
 	if (format_char == 'c')
-		val = ft_putchar(va_arg(list,int));
+		val = ft_putchar(va_arg(list, int));
 	else if (format_char == 's')
-		val = ft_putstr(va_arg(list,char *));
+		val = ft_putstr(va_arg(list, char *));
 	else if (format_char == 'd' || format_char == 'i')
 		val = ft_putnbr(va_arg(list, int));
 	else if (format_char == 'u')
-		val = ft_putnbr_unsigned(va_arg(list, unsigned long));
+		val = ft_putnbr_unsigned(va_arg(list, unsigned int));
 	else if (format_char == 'x' || format_char == 'X')
-		val = ft_hexa(va_arg(list, unsigned int),format_char);
+		val = ft_hexa(va_arg(list, unsigned int), format_char);
 	else if (format_char == 'p')
-		val = ft_putpointer(va_arg(list,unsigned long));
+		val = ft_putpointer(va_arg(list, unsigned long));
 	else if (format_char == '%')
-			val = ft_putchar('%');
+		val = ft_putchar('%');
 	return (val);
 }
 
-int ft_printf(const char *format, ...)
+int	ft_printf(const char *format, ...)
 {
 	va_list	list;
-	int	i;
-	int	printf_output_len;
+	int		i;
+	int		printf_output_len;
 
 	i = 0;
 	printf_output_len = 0;
 	va_start(list, format);
 	if (!format)
-		return -1;
+		return (-1);
 	while (format[i] != '\0')
 	{
 		if (format[i] == '%')
@@ -65,103 +65,207 @@ int ft_printf(const char *format, ...)
 	return (printf_output_len);
 }
 
+#include "libftprintf.h"
+#include <stdio.h>
 #include <limits.h>
+
+void test_char(void)
+{
+    printf("=== Testing %%c ===\n");
+    printf("ft_printf: ");
+    int ft_ret1 = ft_printf("Char: %c\n", 'A');
+    printf("printf:    ");
+    int std_ret1 = printf("Char: %c\n", 'A');
+    printf("Return values - ft: %d, std: %d\n\n", ft_ret1, std_ret1);
+
+    printf("ft_printf: ");
+    int ft_ret2 = ft_printf("Null char: %c\n", '\0');
+    printf("printf:    ");
+    int std_ret2 = printf("Null char: %c\n", '\0');
+    printf("Return values - ft: %d, std: %d\n\n", ft_ret2, std_ret2);
+}
+
+void test_string(void)
+{
+    printf("=== Testing %%s ===\n");
+    printf("ft_printf: ");
+    int ft_ret1 = ft_printf("String: %s\n", "Hello World");
+    printf("printf:    ");
+    int std_ret1 = printf("String: %s\n", "Hello World");
+    printf("Return values - ft: %d, std: %d\n\n", ft_ret1, std_ret1);
+
+    printf("ft_printf: ");
+    int ft_ret2 = ft_printf("Empty: %s\n", "");
+    printf("printf:    ");
+    int std_ret2 = printf("Empty: %s\n", "");
+    printf("Return values - ft: %d, std: %d\n\n", ft_ret2, std_ret2);
+
+    printf("ft_printf: ");
+    int ft_ret3 = ft_printf("NULL: %s\n", (char *)NULL);
+    printf("printf:    ");
+    int std_ret3 = printf("NULL: %s\n", (char *)NULL);
+    printf("Return values - ft: %d, std: %d\n\n", ft_ret3, std_ret3);
+}
+
+void test_integers(void)
+{
+    printf("=== Testing %%d and %%i ===\n");
+    printf("ft_printf: ");
+    int ft_ret1 = ft_printf("Int: %d, %i\n", 42, -42);
+    printf("printf:    ");
+    int std_ret1 = printf("Int: %d, %i\n", 42, -42);
+    printf("Return values - ft: %d, std: %d\n\n", ft_ret1, std_ret1);
+
+    printf("ft_printf: ");
+    int ft_ret2 = ft_printf("Zero: %d\n", 0);
+    printf("printf:    ");
+    int std_ret2 = printf("Zero: %d\n", 0);
+    printf("Return values - ft: %d, std: %d\n\n", ft_ret2, std_ret2);
+
+    printf("ft_printf: ");
+    int ft_ret3 = ft_printf("Max: %d, Min: %d\n", INT_MAX, INT_MIN);
+    printf("printf:    ");
+    int std_ret3 = printf("Max: %d, Min: %d\n", INT_MAX, INT_MIN);
+    printf("Return values - ft: %d, std: %d\n\n", ft_ret3, std_ret3);
+}
+
+void test_unsigned(void)
+{
+    printf("=== Testing %%u ===\n");
+    printf("ft_printf: ");
+    int ft_ret1 = ft_printf("Unsigned: %u\n", 42U);
+    printf("printf:    ");
+    int std_ret1 = printf("Unsigned: %u\n", 42U);
+    printf("Return values - ft: %d, std: %d\n\n", ft_ret1, std_ret1);
+
+    printf("ft_printf: ");
+    int ft_ret2 = ft_printf("Zero: %u\n", 0U);
+    printf("printf:    ");
+    int std_ret2 = printf("Zero: %u\n", 0U);
+    printf("Return values - ft: %d, std: %d\n\n", ft_ret2, std_ret2);
+
+    printf("ft_printf: ");
+    int ft_ret3 = ft_printf("Max: %u\n", UINT_MAX);
+    printf("printf:    ");
+    int std_ret3 = printf("Max: %u\n", UINT_MAX);
+    printf("Return values - ft: %d, std: %d\n\n", ft_ret3, std_ret3);
+}
+
+void test_hex(void)
+{
+    printf("=== Testing %%x and %%X ===\n");
+    printf("ft_printf: ");
+    int ft_ret1 = ft_printf("Hex: %x, %X\n", 255, 255);
+    printf("printf:    ");
+    int std_ret1 = printf("Hex: %x, %X\n", 255, 255);
+    printf("Return values - ft: %d, std: %d\n\n", ft_ret1, std_ret1);
+
+    printf("ft_printf: ");
+    int ft_ret2 = ft_printf("Zero: %x, %X\n", 0, 0);
+    printf("printf:    ");
+    int std_ret2 = printf("Zero: %x, %X\n", 0, 0);
+    printf("Return values - ft: %d, std: %d\n\n", ft_ret2, std_ret2);
+
+    printf("ft_printf: ");
+    int ft_ret3 = ft_printf("Large: %x, %X\n", 0xDEADBEEF, 0xDEADBEEF);
+    printf("printf:    ");
+    int std_ret3 = printf("Large: %x, %X\n", 0xDEADBEEF, 0xDEADBEEF);
+    printf("Return values - ft: %d, std: %d\n\n", ft_ret3, std_ret3);
+}
+
+void test_pointer(void)
+{
+    printf("=== Testing %%p ===\n");
+    int test_var = 42;
+    char *test_str = "test";
+    
+    printf("ft_printf: ");
+    int ft_ret1 = ft_printf("Pointer: %p\n", &test_var);
+    printf("printf:    ");
+    int std_ret1 = printf("Pointer: %p\n", &test_var);
+    printf("Return values - ft: %d, std: %d\n\n", ft_ret1, std_ret1);
+
+    printf("ft_printf: ");
+    int ft_ret2 = ft_printf("String ptr: %p\n", test_str);
+    printf("printf:    ");
+    int std_ret2 = printf("String ptr: %p\n", test_str);
+    printf("Return values - ft: %d, std: %d\n\n", ft_ret2, std_ret2);
+
+    printf("ft_printf: ");
+    int ft_ret3 = ft_printf("NULL ptr: %p\n", (void *)NULL);
+    printf("printf:    ");
+    int std_ret3 = printf("NULL ptr: %p\n", (void *)NULL);
+    printf("Return values - ft: %d, std: %d\n\n", ft_ret3, std_ret3);
+}
+
+void test_percent(void)
+{
+    printf("=== Testing %%%% ===\n");
+    printf("ft_printf: ");
+    int ft_ret1 = ft_printf("Percent: %%\n");
+    printf("printf:    ");
+    int std_ret1 = printf("Percent: %%\n");
+    printf("Return values - ft: %d, std: %d\n\n", ft_ret1, std_ret1);
+
+    printf("ft_printf: ");
+    int ft_ret2 = ft_printf("Multiple: %% %% %%\n");
+    printf("printf:    ");
+    int std_ret2 = printf("Multiple: %% %% %%\n");
+    printf("Return values - ft: %d, std: %d\n\n", ft_ret2, std_ret2);
+}
+
+void test_mixed(void)
+{
+    printf("=== Testing Mixed Formats ===\n");
+    printf("ft_printf: ");
+    int ft_ret1 = ft_printf("Mixed: %c %s %d %u %x %p %%\n", 'A', "test", -42, 42U, 255, &ft_ret1);
+    printf("printf:    ");
+    int std_ret1 = printf("Mixed: %c %s %d %u %x %p %%\n", 'A', "test", -42, 42U, 255, &std_ret1);
+    printf("Return values - ft: %d, std: %d\n\n", ft_ret1, std_ret1);
+}
+
+void test_edge_cases(void)
+{
+    printf("=== Testing Edge Cases ===\n");
+    
+    // Test NULL format
+    printf("NULL format test:\n");
+    printf("ft_printf: ");
+    int ft_ret1 = ft_printf(NULL);
+    printf("printf:    ");
+    int std_ret1 = printf((char *)NULL);
+    printf("Return values - ft: %d, std: %d\n\n", ft_ret1, std_ret1);
+    
+    // Test empty format
+    printf("ft_printf: ");
+    int ft_ret2 = ft_printf("");
+    printf("printf:    ");
+    int std_ret2 = printf("");
+    printf("Return values - ft: %d, std: %d\n\n", ft_ret2, std_ret2);
+    
+    // Test format with no specifiers
+    printf("ft_printf: ");
+    int ft_ret3 = ft_printf("No specifiers here!");
+    printf("printf:    ");
+    int std_ret3 = printf("No specifiers here!");
+    printf("Return values - ft: %d, std: %d\n\n", ft_ret3, std_ret3);
+}
 
 int main(void)
 {
-
-    //    printf("========stand========\n");
-    //    int l333 = printf(" 42Amman \n Abdallah   \t anything %%\n ---------\n");
-    //    int l444 = ft_printf(" 42Amman \n Abdallah   \t anything %%\n ---------\n");
-    //    printf("len printf %d len ft_print %d\n",l333 , l444);
-
-    // printf("======== %%-1 ========\n");
-    // char c = 'A';
-    // int l111 = printf(NULL, c);
-    // int l222 = ft_printf(NULL, c);
-    // printf("len printf %d len ft_print %d\n",l111 , l222);
-
-    // printf("======== %%c ========\n");
-    // char c = 'A';
-    // int l1 = printf("%c\n", c);
-    // int l2 = ft_printf("%c\n", c);
-    // //ft_printf("%c\n", c);
-    // printf("len printf %d len ft_print %d\n",l1 , l2);
-
-    // printf("\n======== %%s ========\n");
-    // char *str = "| | | | | | 42Amman | | | | | |";
-    // int l3 = printf("%s\n", str);
-    // int l4 =ft_printf("%s\n", str);
-    // //ft_printf("%s\n", " ");
-    // printf("len printf %d len ft_print %d\n",l3 , l4);
-
-    // printf("\n======== %%s (NULL) ========\n");
-    // char *null_str = NULL;
-    // int l5 =printf("%s\n", null_str);
-    // int l6 =ft_printf("%s\n", null_str);
-    // printf("len printf %d len ft_print %d\n",l5 , l6);
-
-    printf("\n======== %%p ========\n");
-    char *str1 = "42";
-    char *ptr = str1;
-    int l7 = printf("%p\n", ptr);
-    int l8 =ft_printf("%p\n", ptr);
-    printf("len printf %d len ft_print %d\n",l7 , l8);
-
-//     printf("\n======== %%p (NULL) ========\n");
-//     char *null_ptr = NULL;
-//     int l9 = printf("%p\n", null_ptr);
-//     int l10 =ft_printf("%p\n", null_ptr);
-//     printf("len printf %d len ft_print %d\n",l9 , l10);
-
-//     printf("\n======== %%d ========\n");
-//     int d = -12345;
-//     int l11 = printf("%d | %d | %d | %d\n", INT_MIN, INT_MAX , 0, d);
-//     int l12 = ft_printf("%d | %d | %d | %d\n", INT_MIN, INT_MAX, 0, d);
-//     printf("len printf %d len ft_print %d\n",l11 , l12);
-
-//     printf("\n======== %%i ========\n");
-//     int i = 6789;
-//     int l13 = printf("%i | %i | %i\n", INT_MIN, INT_MAX, i);
-//     int l14 = ft_printf("%i | %i | %i\n", INT_MIN, INT_MAX, i);
-//     printf("len printf %d len ft_print %d\n",l13 , l14);
-
-//     printf("\n======== %%u ========\n");
-//     unsigned int u = 23232773;
-//     unsigned int u_neg = (unsigned int)-1;
-//     int l15 = printf("%u | %u | %u | %u\n", 0, UINT_MAX, u_neg,u);
-//     int l16 =ft_printf("%u | %u | %u | %u\n", 0, UINT_MAX, u_neg,u);
-//     printf("len printf %d len ft_print %d\n",l15 , l16);
-
-//     printf("\n======== %%x ========\n");
-//     int hex = 373592855; //16449317
-// //  int_min = 80000000
-// //  int_max = 7fffffff
-//     int l17 = printf("%x | %x | %x | %x\n", 0, INT_MIN, hex,INT_MAX);
-//     int l18 =ft_printf("%x | %x | %x | %x\n", 0, INT_MIN, hex, INT_MAX);
-//     printf("len printf %d len ft_print %d\n",l17 , l18);
-// //  ft_printf("%x | %x\n",LONG_MAX,LONG_MAX);
-// //  printf("%x | %x\n",LONG_MAX,LONG_MAX);
-
-
-//     printf("\n======== %%X ========\n");
-//     int hex = 373592855; //16449317
-// //  int_min = 80000000
-// //  int_max = 7FFFFFFF
-//     int l19 = printf("%X | %X | %X | %X\n", 0, INT_MIN, hex,INT_MAX);
-//     int l20 =ft_printf("%X | %X | %X | %X\n", 0, INT_MIN, hex, INT_MAX);
-//     printf("len printf %d len ft_print %d\n",l19 , l20);
-
-//     printf("\n======== %%%% ========\n");
-//     int l21 = printf("%%\n");
-//     int l22 = ft_printf("%%\n");
-//     printf("len printf %d len ft_print %d\n",l21 , l22);
-
-//        printf("========extra========\n");
-//        int l333 = printf(NULL);
-//        int l444 = ft_printf(NULL);
-//        printf("len printf %d len ft_print %d\n",l333 , l444);
-
-
-    return 0;
+    printf("Testing ft_printf implementation\n");
+    printf("=================================\n\n");
+    
+    test_char();
+    test_string();
+    test_integers();
+    test_unsigned();
+    test_hex();
+    test_pointer();
+    test_percent();
+    test_mixed();
+    test_edge_cases();
+    
+    printf("=== Testing Complete ===\n");
+    return (0);
 }

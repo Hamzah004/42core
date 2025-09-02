@@ -12,7 +12,7 @@
 
 #include "libftprintf.h"
 
-int	number_length(long number)
+int	number_length(int number)
 {
 	int	i;
 
@@ -24,11 +24,12 @@ int	number_length(long number)
 	}
 	return (i);
 }
+
 int	ft_putnbr(int n)
 {
 	long	number;
-	int	len;
-	int	sign;
+	int		len;
+	int		sign;
 
 	number = n;
 	sign = 0;
@@ -43,7 +44,7 @@ int	ft_putnbr(int n)
 		len = number_length(number) + 1;
 	if (number >= 0 && number <= 9)
 	{
-	ft_putchar(number + '0');
+		ft_putchar(number + '0');
 	}
 	if (number > 9)
 	{

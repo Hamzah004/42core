@@ -12,12 +12,28 @@
 
 #include "libftprintf.h"
 
-int ft_putpointer(unsigned long long number)
+int	ft_hexa_ptr(unsigned long n, char format_char)
 {
+	char	*s;
 
-    if (!number)
-      return (ft_putstr("(nil)"));
-    ft_putstr("0x");
-    ft_hexa(number,'x');
-    return (number_length_hexa(number) + 2);
+	if (format_char == 'x')
+		s = "0123456789abcdef";
+	else
+		s = "0123456789ABCDEF";
+	if (n > 15)
+		ft_hexa((n / 16), format_char);
+	ft_putchar(s[n % 16]);
+	return (number_length_hexa(n));
+}
+
+int	ft_putpointer(unsigned long number)
+{
+	int	count;
+
+	count = 0;
+	if (!number)
+		return (ft_putstr("(nil)"));
+	count += ft_putstr("0x");
+	count += ft_hexa_ptr(number, 'x');
+	return (count);
 }

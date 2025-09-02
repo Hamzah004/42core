@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libftprintf.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hbani-at <hbani-at@student.42amman.com>    +#+  +:+       +#+        */
+/*   By: liva <liva@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/30 00:04:30 by hbani-at          #+#    #+#             */
-/*   Updated: 2025/09/02 16:52:14 by hbani-at         ###   ########.fr       */
+/*   Updated: 2025/09/02 19:30:12 by liva             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,19 @@
 # define LIBFTPRINTF_H
 
 # include <ctype.h>
+# include <stdarg.h>
 # include <stddef.h>
 # include <stdio.h>
 # include <stdlib.h>
 # include <string.h>
 # include <unistd.h>
-#include <stdarg.h>
 
 int	ft_putchar(char c);
-int	ft_putstr(char	*s);
+int	ft_putstr(char *s);
 int	ft_putnbr(int n);
-int	number_length(long number);
-int	ft_putnbr_unsigned(unsigned long number);
-int ft_hexa(unsigned int n, char format_char);
+int	ft_putnbr_unsigned(unsigned int number);
+int	ft_hexa(unsigned int n, char format_char);
+int	number_length(int number);
 int	number_length_hexa(long number);
-int ft_putpointer(unsigned long long number);
+int	ft_putpointer(unsigned long number);
 #endif
