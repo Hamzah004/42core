@@ -6,7 +6,7 @@
 /*   By: hbani-at <hbani-at@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/30 00:04:30 by hbani-at          #+#    #+#             */
-/*   Updated: 2025/08/31 21:01:00 by hbani-at         ###   ########.fr       */
+/*   Updated: 2025/09/02 16:52:14 by hbani-at         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,4 +26,7 @@ int	ft_putstr(char	*s);
 int	ft_putnbr(int n);
 int	number_length(long number);
 int	ft_putnbr_unsigned(unsigned long number);
+int ft_hexa(unsigned int n, char format_char);
+int	number_length_hexa(long number);
+int ft_putpointer(unsigned long long number);
 #endif

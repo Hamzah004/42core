@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: hbani-at <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: hbani-at <hbani-at@student.42amman.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/14 18:17:03 by hbani-at          #+#    #+#              #
-#    Updated: 2025/08/28 19:53:35 by hbani-at         ###   ########.fr        #
+#    Updated: 2025/09/02 16:54:07 by hbani-at         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,7 @@ SRC := ft_printf.c \
        ft_putnbr.c \
        ft_putnbr_unsigned.c \
        ft_hexa.c \
+       ft_putpointer.c \
 
 OBJ := $(SRC:.c=.o)
 
