@@ -6,7 +6,7 @@
 /*   By: hbani-at <hbani-at@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/02 16:44:29 by hbani-at          #+#    #+#             */
-/*   Updated: 2025/09/02 16:54:36 by hbani-at         ###   ########.fr       */
+/*   Updated: 2025/09/03 17:35:02 by hbani-at         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	ft_hexa_ptr(unsigned long n, char format_char)
 	else
 		s = "0123456789ABCDEF";
 	if (n > 15)
-		ft_hexa((n / 16), format_char);
+		ft_hexa_ptr((n / 16), format_char);
 	ft_putchar(s[n % 16]);
 	return (number_length_hexa(n));
 }

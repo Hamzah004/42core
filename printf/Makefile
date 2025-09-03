@@ -3,13 +3,12 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: liva <liva@student.42.fr>                  +#+  +:+       +#+         #
+#    By: hbani-at <hbani-at@student.42amman.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/08/14 18:17:03 by hbani-at          #+#    #+#              #
-#    Updated: 2025/09/02 19:29:58 by liva             ###   ########.fr        #
+#    Created: 2025/09/03 17:33:13 by hbani-at          #+#    #+#              #
+#    Updated: 2025/09/03 17:34:18 by hbani-at         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-
 
 NAME := libftprintf.a
 CC := cc
@@ -21,6 +20,7 @@ SRC := ft_printf.c \
        ft_putnbr_unsigned.c \
        ft_hexa.c \
        ft_putpointer.c \
+       len.c \
 
 OBJ := $(SRC:.c=.o)
 

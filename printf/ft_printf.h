@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libftprintf.h                                      :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: liva <liva@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: hbani-at <hbani-at@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/30 00:04:30 by hbani-at          #+#    #+#             */
-/*   Updated: 2025/09/02 19:30:12 by liva             ###   ########.fr       */
+/*   Updated: 2025/09/03 17:14:57 by hbani-at         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FTPRINTF_H
-# define FTPRINTF_H
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
 # include <ctype.h>
 # include <stdarg.h>
@@ -21,12 +21,14 @@
 # include <string.h>
 # include <unistd.h>
 
+int	ft_printf(const char *format, ...);
 int	ft_putchar(char c);
 int	ft_putstr(char *s);
 int	ft_putnbr(int n);
 int	ft_putnbr_unsigned(unsigned int number);
 int	ft_hexa(unsigned int n, char format_char);
-int	number_length(int number);
-int	number_length_hexa(long number);
+int	number_length(long number);
+int	number_length_hexa(unsigned long number);
 int	ft_putpointer(unsigned long number);
+int	number_length_unsigned(unsigned int number);
 #endif
