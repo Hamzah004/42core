@@ -1,29 +1,52 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libftprintf.h                                      :+:      :+:    :+:   */
+/*   len.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hbani-at <hbani-at@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/30 00:04:30 by hbani-at          #+#    #+#             */
-/*   Updated: 2025/08/31 21:01:00 by hbani-at         ###   ########.fr       */
+/*   Created: 2025/09/03 16:44:02 by hbani-at          #+#    #+#             */
+/*   Updated: 2025/09/03 17:34:08 by hbani-at         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFTPRINTF_H
-# define LIBFTPRINTF_H
+#include "ft_printf.h"
 
-# include <ctype.h>
-# include <stddef.h>
-# include <stdio.h>
-# include <stdlib.h>
-# include <string.h>
-# include <unistd.h>
-#include <stdarg.h>
+int	number_length_hexa(unsigned long number)
+{
+	int	i;
 
-int	ft_putchar(char c);
-int	ft_putstr(char	*s);
-int	ft_putnbr(int n);
-int	number_length(long number);
-int	ft_putnbr_unsigned(unsigned long number);
-#endif
+	i = 1;
+	while (number >= 16)
+	{
+		number /= 16;
+		i++;
+	}
+	return (i);
+}
+
+int	number_length(long number)
+{
+	int	i;
+
+	i = 1;
+	while (number >= 10)
+	{
+		number /= 10;
+		i++;
+	}
+	return (i);
+}
+
+int	number_length_unsigned(unsigned int number)
+{
+	int	i;
+
+	i = 1;
+	while (number >= 10)
+	{
+		number /= 10;
+		i++;
+	}
+	return (i);
+}

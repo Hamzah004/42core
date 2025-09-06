@@ -6,17 +6,17 @@
 /*   By: hbani-at <hbani-at@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/31 20:53:47 by hbani-at          #+#    #+#             */
-/*   Updated: 2025/08/31 21:00:59 by hbani-at         ###   ########.fr       */
+/*   Updated: 2025/09/03 16:59:39 by hbani-at         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
-int	ft_putnbr_unsigned(unsigned long number)
+int	ft_putnbr_unsigned(unsigned int number)
 {
 	int	len;
 
-	len = number_length(number);
+	len = number_length_unsigned(number);
 	if (number <= 9)
 		ft_putchar(number + '0');
 	if (number > 9)

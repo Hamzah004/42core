@@ -5,21 +5,26 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hbani-at <hbani-at@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/30 00:04:33 by hbani-at          #+#    #+#             */
-/*   Updated: 2025/08/30 00:04:47 by hbani-at         ###   ########.fr       */
+/*   Created: 2025/09/03 17:33:59 by hbani-at          #+#    #+#             */
+/*   Updated: 2025/09/03 17:34:02 by hbani-at         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
-int	ft_putstr(char	*s)
+int	ft_putstr(char *str)
 {
 	int	i;
 
-	i = 0;
-	while (s[i] != '\0')
+	if (!str)
 	{
-		write(1, &s[i], 1);
+		i = ft_putstr("(null)");
+		return (i);
+	}
+	i = 0;
+	while (str[i])
+	{
+		write(1, &str[i], 1);
 		i++;
 	}
 	return (i);
