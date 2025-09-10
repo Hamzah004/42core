@@ -6,7 +6,7 @@
 /*   By: hbani-at <hbani-at@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/09 20:52:41 by hbani-at          #+#    #+#             */
-/*   Updated: 2025/09/10 19:06:37 by hbani-at         ###   ########.fr       */
+/*   Updated: 2025/09/10 21:06:09 by hbani-at         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,7 @@
 # include <unistd.h>
 
 char	*get_next_line(int fd);
-
+char	*ft_strjoin(char const *s1, char const *s2);
+size_t	ft_strlcpy(char *dest, const char *src, size_t size);
+size_t	ft_strlen(const char *s);
 #endif
