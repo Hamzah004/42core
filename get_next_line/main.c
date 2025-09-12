@@ -28,7 +28,6 @@
 // 	fun(n - 1);
 // }
 
-
 // int	main(void)
 // {
 // 	fun(10);
@@ -43,14 +42,17 @@
 // }
 
 // Function with static variable
-int fun(){
-	static int count;
+// int	fun(void)
+// {
+// 	static int	count;
 
-	count++;
-	return count;
-}
-int main(){
-    printf("%d ", fun());
-    printf("%d ", fun());
-    return 0;
+// 	count++;
+// 	return (count);
+// }
+int	main(void)
+{
+	int	fd = open("text.txt", O_RDWR, 0644);
+	char	*s = "this is a test\nthis is ssss";
+	printf("%s", get_line(s));
+	// printf("%s",get_next_line(fd));
 }

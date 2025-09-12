@@ -6,7 +6,7 @@
 /*   By: hbani-at <hbani-at@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/09 20:52:41 by hbani-at          #+#    #+#             */
-/*   Updated: 2025/09/10 21:06:09 by hbani-at         ###   ########.fr       */
+/*   Updated: 2025/09/12 02:35:08 by hbani-at         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,4 +24,8 @@ char	*get_next_line(int fd);
 char	*ft_strjoin(char const *s1, char const *s2);
 size_t	ft_strlcpy(char *dest, const char *src, size_t size);
 size_t	ft_strlen(const char *s);
+char	*ft_strdup(const char *s);
+int ft_strchr(const char *s, int c);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
+char	*get_line(char *stash);
 #endif
