@@ -16,14 +16,13 @@
 char	*get_line(char *stash)
 {
 	size_t	i;
-	size_t	j;
 	char	*line;
 
 	i = 0;
-	j = 0;
 	while (stash[i] != '\n')
 		i++;
-	line = malloc(i + 1);
+
+	return (ft_substr(stash, 0, i + 1));
 }
 
 char	*get_next_line(int fd)
@@ -35,11 +34,12 @@ char	*get_next_line(int fd)
 	buffer = malloc(BUFFER_SIZE + 1);
 	if (!buffer)
 		return NULL;
-	offset = read(fd, buffer, BUFFER_SIZE);
+	offset = 1;
 	if (!stash)
 		stash = ft_strdup("");
 	while (offset > 0 && buffer)
 	{
+		offset = read(fd, buffer, BUFFER_SIZE);
 		 stash = ft_strjoin(stash,buffer);
 		if (ft_strchr(stash, '\n'))
 			return (get_line(stash));
