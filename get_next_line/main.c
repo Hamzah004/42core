@@ -52,7 +52,7 @@
 int	main(void)
 {
 	int	fd = open("text.txt", O_RDWR, 0644);
-	char	*s = "this is a test\nthis is ssss";
-	printf("%s", get_line(s));
-	// printf("%s",get_next_line(fd));
+	// char	*s = "this is a test\nthis is ssss";
+	// printf("%s", get_line(s));
+	printf("%s",get_next_line(fd));
 }

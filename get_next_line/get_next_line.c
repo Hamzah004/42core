@@ -13,10 +13,9 @@
 #include "get_next_line.h"
 #include <stdio.h>
 
-char	*get_line(char *stash)
+static char	*get_line(char *stash) // helper function to get the line in each time
 {
 	size_t	i;
-	char	*line;
 
 	i = 0;
 	while (stash[i] != '\n')
@@ -31,19 +30,26 @@ char	*get_next_line(int fd)
 	static char	*stash;
 	ssize_t	offset;
 
+	if (fd == -1)
+		return (NULL);
 	buffer = malloc(BUFFER_SIZE + 1);
 	if (!buffer)
 		return NULL;
 	offset = 1;
 	if (!stash)
 		stash = ft_strdup("");
-	while (offset > 0 && buffer)
+	while (offset > 0)
 	{
 		offset = read(fd, buffer, BUFFER_SIZE);
-		 stash = ft_strjoin(stash,buffer);
+		if (offset > 0)
+			buffer[offset] = '\0';
+		// I used this move to dianamicly make stash start pointing to a new allocated memory reference, and free the old memory reference
+		char	*old_stash = stash;
+		stash = ft_strjoin(stash,buffer);
+		free(old_stash);
 		if (ft_strchr(stash, '\n'))
-			return (get_line(stash));
+			break;
 	}
-	buffer[offset] = '\0';
-	return (NULL);
+	free(buffer);
+	return (get_line(stash));
 }
