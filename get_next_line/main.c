@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hbani-at <hbani-at@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/09 20:49:58 by hbani-at          #+#    #+#             */
-/*   Updated: 2025/09/10 19:57:27by hbani-at         ###   ########.fr       */
+/*   Created: 2025/09/13 13:35:24 by hbani-at          #+#    #+#             */
+/*   Updated: 2025/09/13 18:28:54 by hbani-at         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@
 
 // Function with static variable
 // int	fun(void)
-// {
+
 // 	static int	count;
 
 // 	count++;
@@ -51,8 +51,19 @@
 // }
 int	main(void)
 {
-	int	fd = open("text.txt", O_RDWR, 0644);
-	// char	*s = "this is a test\nthis is ssss";
-	// printf("%s", get_line(s));
-	printf("%s",get_next_line(fd));
+	int		fd;
+	char	*buffer;
+
+	fd = open("text.txt", O_RDWR, 0644);
+	while ((buffer = get_next_line(fd)) != NULL)
+	{
+		printf("%s", buffer);
+		free(buffer);
+	}
+	/* buffer = get_next_line(fd); */
+	/* printf("%s", buffer); */
+	/* free(buffer); */
+	/* buffer = get_next_line(fd); */
+	/* printf("%s", buffer); */
+	/* free(buffer); */
 }

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hbani-at <hbani-at@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/09 20:49:03 by hbani-at          #+#    #+#             */
-/*   Updated: 2025/09/11 18:57:36by hbani-at         ###   ########.fr       */
+/*   Created: 2025/09/13 13:33:21 by hbani-at          #+#    #+#             */
+/*   Updated: 2025/09/13 19:35:30 by hbani-at         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 size_t	ft_strlen(const char *s)
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
 	while (s[i] != '\0')
@@ -22,20 +22,6 @@ size_t	ft_strlen(const char *s)
 		i++;
 	}
 	return (i);
-}
-
-int	ft_strchr(const char *s, int c)
-{
-	int	i;
-
-	i = 0;
-	while (s[i] != '\0')
-	{
-		if (s[i] == (unsigned char)c)
-			return (1);
-		i++;
-	}
-	return (0);
 }
 
 size_t	ft_strlcpy(char *dest, const char *src, size_t size)
@@ -70,9 +56,9 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		return (NULL);
 	ft_strlcpy(new_string, s1, s1_len + 1);
 	ft_strlcpy(new_string + s1_len, s2, s2_len + 1);
+	// TODO: added memory leaks handle
 	return (new_string);
 }
-
 
 char	*ft_strdup(const char *s)
 {
