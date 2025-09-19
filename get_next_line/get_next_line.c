@@ -46,8 +46,7 @@ static char	*get_line(char *stash)
 	char	*line;
 	size_t	i;
 
-	if (!stash || stash[0] == '\0')
-			// NOTE: if my stash is NULL	or if the stash pointer has reached EOF
+	if (!stash || !*stash)
 		return (NULL);
 	i = 0;
 	while (stash[i] != '\n' && stash[i] != '\0')
@@ -73,7 +72,10 @@ static char	*new_stash(char *stash)
 	new_stash = ft_substr(stash, i, ft_strlen(stash) - i);
 	free(stash);
 	if (!new_stash || new_stash[0] == '\0')
+	{
+		free(new_stash);
 		return (NULL);
+	}
 	return (new_stash);
 }
 
@@ -86,18 +88,15 @@ char	*get_next_line(int fd)
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
-	buffer = malloc(BUFFER_SIZE + 1);
+	buffer = malloc(sizeof(char) * BUFFER_SIZE + 1);
 	if (!buffer)
 		return (NULL);
 	offset = 1;
-	if (!stash)
-		stash = ft_strdup("");
 	while (offset > 0 && !ft_check(stash, '\n'))
 	{
 		offset = read(fd, buffer, BUFFER_SIZE);
 		if (offset < 0)
 		{
-			free(stash);
 			free(buffer);
 			return (NULL);
 		}

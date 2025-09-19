@@ -56,7 +56,6 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		return (NULL);
 	ft_strlcpy(new_string, s1, s1_len + 1);
 	ft_strlcpy(new_string + s1_len, s2, s2_len + 1);
-	// TODO: added memory leaks handle
 	return (new_string);
 }
 
@@ -84,8 +83,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		return (NULL);
 	if (start >= len_s)
 		return (ft_strdup(""));
-	if (len > len_s - start)
-		len = len_s - start;
+	if (len > len_s - start) // NOTE: if the len he is asking for is > htan the len left from the str after the start then do:
+		len = len_s - start; // make the len equal len left
 	i = 0;
 	str = malloc(len + 1);
 	if (!str)
