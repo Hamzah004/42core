@@ -64,17 +64,17 @@ static char	*new_stash(char *stash)
 	return (new_stash);
 }
 
-static char	*read_file(int fd, ssize_t offset, char *stash, char *buffer)
+static char	*read_file(int fd, ssize_t bytes_read, char *stash, char *buffer)
 {
-	while (offset > 0 && !ft_strchr(stash, '\n'))
+	while (bytes_read > 0 && !ft_strchr(stash, '\n'))
 	{
-		offset = read(fd, buffer, BUFFER_SIZE);
-		if (offset < 0)
+		bytes_read = read(fd, buffer, BUFFER_SIZE);
+		if (bytes_read < 0)
 		{
 			free(buffer);
 			return (NULL);
 		}
-		buffer[offset] = '\0';
+		buffer[bytes_read] = '\0';
 		stash = ft_strjoin_free(stash, buffer);
 		if (!stash)
 		{
@@ -90,15 +90,15 @@ char	*get_next_line(int fd)
 	char		*buffer;
 	static char	*stash;
 	char		*line;
-	ssize_t		offset;
+	ssize_t		bytes_read;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
 	buffer = malloc(sizeof(char) * BUFFER_SIZE + 1);
 	if (!buffer)
 		return (NULL);
-	offset = 1;
-	stash = read_file(fd, offset, stash, buffer);
+	bytes_read = 1;
+	stash = read_file(fd, bytes_read, stash, buffer);
 	free(buffer);
 	line = get_line(stash);
 	stash = new_stash(stash);
