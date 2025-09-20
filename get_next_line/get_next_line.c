@@ -88,7 +88,7 @@ static char	*read_file(int fd, ssize_t offset, char *stash, char *buffer)
 char	*get_next_line(int fd)
 {
 	char		*buffer;
-	static char	*stash[1024];
+	static char	*stash;
 	char		*line;
 	ssize_t		offset;
 
@@ -98,14 +98,9 @@ char	*get_next_line(int fd)
 	if (!buffer)
 		return (NULL);
 	offset = 1;
-	stash[fd] = read_file(fd, offset, stash[fd], buffer);
+	stash = read_file(fd, offset, stash, buffer);
 	free(buffer);
-	line = get_line(stash[fd]);
-	stash[fd] = new_stash(stash[fd]);
-	if (!stash[fd])
-	{
-		free(stash[fd]);
-		stash[fd] = NULL;
-	}
+	line = get_line(stash);
+	stash = new_stash(stash);
 	return (line);
 }
