@@ -1,17 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hbani-at <hbani-at@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/13 13:33:12 by hbani-at          #+#    #+#             */
-/*   Updated: 2025/09/20 01:35:03 by hbani-at         ###   ########.fr       */
+/*   Created: 2025/09/20 19:19:12 by hbani-at          #+#    #+#             */
+/*   Updated: 2025/09/20 19:20:04 by hbani-at         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
-#include <stdio.h>
+#include "get_next_line_bonus.h"
 
 static char	*ft_strjoin_free(char *s1, char *s2)
 {
