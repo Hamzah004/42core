@@ -6,7 +6,7 @@
 /*   By: hbani-at <hbani-at@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/13 13:33:12 by hbani-at          #+#    #+#             */
-/*   Updated: 2025/09/21 21:33:07 by hbani-at         ###   ########.fr       */
+/*   Updated: 2025/09/21 21:38:52 by hbani-at         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,14 +66,15 @@ static char	*new_stash(char *stash)
 
 static char	*read_file(int fd, char *stash, char *buffer)
 {
-	ssize_t		bytes_read;
-	
+	ssize_t	bytes_read;
+
 	bytes_read = 1;
 	while (bytes_read > 0 && !ft_strchr(stash, '\n'))
 	{
 		bytes_read = read(fd, buffer, BUFFER_SIZE);
 		if (bytes_read < 0)
 		{
+			free(stash);
 			free(buffer);
 			return (NULL);
 		}
