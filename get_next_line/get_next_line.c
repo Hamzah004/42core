@@ -6,7 +6,7 @@
 /*   By: hbani-at <hbani-at@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/13 13:33:12 by hbani-at          #+#    #+#             */
-/*   Updated: 2025/09/20 01:35:03 by hbani-at         ###   ########.fr       */
+/*   Updated: 2025/09/21 21:33:07 by hbani-at         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,11 @@ static char	*new_stash(char *stash)
 	return (new_stash);
 }
 
-static char	*read_file(int fd, ssize_t bytes_read, char *stash, char *buffer)
+static char	*read_file(int fd, char *stash, char *buffer)
 {
+	ssize_t		bytes_read;
+	
+	bytes_read = 1;
 	while (bytes_read > 0 && !ft_strchr(stash, '\n'))
 	{
 		bytes_read = read(fd, buffer, BUFFER_SIZE);
@@ -90,15 +93,15 @@ char	*get_next_line(int fd)
 	char		*buffer;
 	static char	*stash;
 	char		*line;
-	ssize_t		bytes_read;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
 	buffer = malloc(sizeof(char) * BUFFER_SIZE + 1);
 	if (!buffer)
 		return (NULL);
-	bytes_read = 1;
-	stash = read_file(fd, bytes_read, stash, buffer);
+	stash = read_file(fd, stash, buffer);
+	if (!stash)
+		return (NULL);
 	free(buffer);
 	line = get_line(stash);
 	stash = new_stash(stash);

@@ -4,12 +4,12 @@
 int	main(void)
 {
 	int	fd;
-	char *buffer;
+	char	*buffer;
 
-	fd = open("test",O_RDWR,0644);
+	fd = open("test", O_RDWR, 0644);
 	while ((buffer = get_next_line(fd)) != NULL)
 	{
-		printf("%s",buffer);
+		printf("%s", buffer);
 		free(buffer);
 	}
 	close(fd);

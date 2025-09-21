@@ -6,7 +6,7 @@
 /*   By: hbani-at <hbani-at@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/20 19:19:12 by hbani-at          #+#    #+#             */
-/*   Updated: 2025/09/20 19:20:04 by hbani-at         ###   ########.fr       */
+/*   Updated: 2025/09/21 21:28:33 by hbani-at         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,17 +63,20 @@ static char	*new_stash(char *stash)
 	return (new_stash);
 }
 
-static char	*read_file(int fd, ssize_t offset, char *stash, char *buffer)
+static char	*read_file(int fd, char *stash, char *buffer)
 {
-	while (offset > 0 && !ft_strchr(stash, '\n'))
+	ssize_t		bytes_read;
+
+	bytes_read = 1;
+	while (bytes_read > 0 && !ft_strchr(stash, '\n'))
 	{
-		offset = read(fd, buffer, BUFFER_SIZE);
-		if (offset < 0)
+		bytes_read = read(fd, buffer, BUFFER_SIZE);
+		if (bytes_read < 0)
 		{
 			free(buffer);
 			return (NULL);
 		}
-		buffer[offset] = '\0';
+		buffer[bytes_read] = '\0';
 		stash = ft_strjoin_free(stash, buffer);
 		if (!stash)
 		{
@@ -89,22 +92,17 @@ char	*get_next_line(int fd)
 	char		*buffer;
 	static char	*stash[1024];
 	char		*line;
-	ssize_t		offset;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
 	buffer = malloc(sizeof(char) * BUFFER_SIZE + 1);
 	if (!buffer)
 		return (NULL);
-	offset = 1;
-	stash[fd] = read_file(fd, offset, stash[fd], buffer);
+	stash[fd] = read_file(fd, stash[fd], buffer);
+	if (!stash[fd])
+		return (NULL);
 	free(buffer);
 	line = get_line(stash[fd]);
 	stash[fd] = new_stash(stash[fd]);
-	if (!stash[fd])
-	{
-		free(stash[fd]);
-		stash[fd] = NULL;
-	}
 	return (line);
 }
