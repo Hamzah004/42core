@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "get_next_line_bonus.h"
+#include <stdlib.h>
 
 static char	*ft_strjoin_free(char *s1, char *s2)
 {
@@ -94,7 +95,7 @@ char	*get_next_line(int fd)
 	static char	*stash[1024];
 	char		*line;
 
-	if (fd < 0 || BUFFER_SIZE <= 0)
+	if (fd < 0 || fd >= 1024 || BUFFER_SIZE <= 0)
 		return (NULL);
 	buffer = malloc(sizeof(char) * BUFFER_SIZE + 1);
 	if (!buffer)
