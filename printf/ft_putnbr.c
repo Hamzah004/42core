@@ -38,9 +38,3 @@ int	ft_putnbr(int n)
 	}
 	return (len);
 }
-/*#include <limits.h>
-int	main (void)
-{
-		int result = ft_printf(" %d ", INT_MIN);
-		printf("%d",result);
-}*/
