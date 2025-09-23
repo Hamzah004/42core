@@ -1,0 +1,9 @@
+# C build artifacts
+*/a.out
+*/*.o
+*/*.out
+*/*.exe
+
+# Editor/OS junk
+*/*.swp
+*/.DS_Store
