@@ -16,7 +16,7 @@ NAME = push_swap
 SRC := 	main.c \
 	push_swap.c \
        	utils.c
-OBJ := $(SRC:.c=.o)
+OBJS := $(SRC:.c=.o)
 LIBFT_DIR = ./libft
 PRINTF_DIR = ./printf
 LIBFT_A = $(LIBFT_DIR)/libft.a
