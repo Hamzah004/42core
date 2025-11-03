@@ -25,7 +25,7 @@ PRINTF_A = $(PRINTF_DIR)/libftprintf.a
 all: $(NAME)
 
 $(NAME): $(OBJS) $(LIBFT_A) $(PRINTF_A)
-	$(CC) $(CFLAGS)  $(OBJS) $(LIBFT_A) $(PRINTF_A) -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJS) $(LIBFT_A) $(PRINTF_A) -o $(NAME)
 
 $(LIBFT_A):
 	@make -C $(LIBFT_DIR)
