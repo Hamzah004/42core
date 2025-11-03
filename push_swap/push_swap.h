@@ -20,4 +20,6 @@ typedef struct s_stack
 	struct s_stack	*next;
 }					t_stack;
 
+int	ft_atoi(const char *str);
+char	*push_swap(char	*input);
 #endif
