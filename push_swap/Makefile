@@ -10,39 +10,41 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME := push_swap
-CC := cc
+CC = cc
 CFLAGS := -Wall -Werror -Wextra
-SRC := push_swap.c \
-       utils.c
-LIBFT = libft.a
-LIBPRINTF = libprintf.a
-LIBFT_PATH = ./libft/
-LIBPRINTF_PATH = ./printf/
-
+NAME = push_swap
+SRC := 	main.c \
+	push_swap.c \
+       	utils.c
 OBJ := $(SRC:.c=.o)
+LIBFT_DIR = ./libft
+PRINTF_DIR = ./printf
+LIBFT_A = $(LIBFT_DIR)/libft.a
+PRINTF_A = $(PRINTF_DIR)/libftprintf.a
 
 all: $(NAME)
 
-$(NAME): $(OBJ) $(LIBFT) $(LIBPRINTF)
-	$(CC) $(CFLAGS) $(OBJ) $(LIBFT) $(LIBPRINTF) -o $(NAME)
+$(NAME): $(OBJS) $(LIBFT_A) $(PRINTF_A)
+	$(CC) $(CFLAGS)  $(OBJS) $(LIBFT_A) $(PRINTF_A) -o $(NAME)
+
+$(LIBFT_A):
+	@make -C $(LIBFT_DIR)
+
+$(PRINTF_A):
+	@make -C $(PRINTF_DIR)
 
 %.o : %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
-$(LIBFT):
-	$(MAKE) -L $(LIBFT_PATH) -l libft
-	$(MAKE) ./libft/clean
-
-$(LIBPRINTF):
-	$(MAKE) $(LIBPRINTF_PATH)
-	$(MAKE) ./printf/clean
-
 clean:
-	rm -f $(OBJ)
+	@rm -f $(OBJS)
+	@make -C $(LIBFT_DIR) clean
+	@make -C $(PRINTF_DIR) clean
 
 fclean: clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
+	@make -C $(LIBFT_DIR) fclean
+	@make -C $(PRINTF_DIR) fclean
 
 re: fclean all
 
