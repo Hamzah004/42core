@@ -14,8 +14,9 @@ CC = cc
 CFLAGS := -Wall -Werror -Wextra
 NAME = push_swap
 SRC := 	main.c \
-	push_swap.c \
-       	utils.c
+				push_swap.c \
+				utils.c \
+       	input_parsing.c
 OBJS := $(SRC:.c=.o)
 LIBFT_DIR = ./libft
 PRINTF_DIR = ./printf
