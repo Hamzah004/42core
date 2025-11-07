@@ -6,17 +6,18 @@
 #    By: hbani-at <hbani-at@student.42amman.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/11/03 21:30:40 by hbani-at          #+#    #+#              #
-#    Updated: 2025/11/03 21:30:43 by hbani-at         ###   ########.fr        #
+#    Updated: 2025/11/07 22:07:09 by hbani-at         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc
-CFLAGS := -Wall -Werror -Wextra
+CFLAGS := -g -Wall -Werror -Wextra
 NAME = push_swap
 SRC := 	main.c \
 				push_swap.c \
 				utils.c \
-       	input_parsing.c
+       	input_parsing.c \
+				is_number.c
 OBJS := $(SRC:.c=.o)
 LIBFT_DIR = ./libft
 PRINTF_DIR = ./printf

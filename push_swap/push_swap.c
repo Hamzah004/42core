@@ -12,10 +12,11 @@
 
 #include "push_swap.h"
 
-char	*push_swap(char	*input)
+char	*push_swap(char *input)
 {
-	(void) input;
-		char	*output = "thsi";
-			return (output);
+	char	*output;
 
+	(void)input;
+	output = "this";
+	return (output);
 }

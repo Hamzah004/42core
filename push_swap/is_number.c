@@ -1,24 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   is_number.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hbani-at <hbani-at@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/01 19:09:54 by hbani-at          #+#    #+#             */
-/*   Updated: 2025/11/01 19:15:06 by hbani-at         ###   ########.fr       */
+/*   Created: 2025/11/07 22:02:29 by hbani-at          #+#    #+#             */
+/*   Updated: 2025/11/07 22:02:29 by hbani-at         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft/libft.h"
 
-typedef struct s_stack
+int	is_number(char *number)
 {
-	void			*value;
-	struct s_stack	*next;
-}					t_stack;
+	int	i;
 
-char				*push_swap(char *input);
-int					is_number(char *number);
-#endif
+	i = 0;
+	if (number[i] == '+' || number[i] == '-')
+		i++;
+	if (number[i] == '\0')
+		return (0);
+	while (number[i] != '\0')
+	{
+		if (!(ft_isdigit(number[i])))
+			return (0);
+		i++;
+	}
+	return (1);
+}

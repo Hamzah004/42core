@@ -12,19 +12,30 @@
 
 #include "./libft/libft.h"
 #include "push_swap.h"
+#include <limits.h>
 
 int	main(int ac, char **av)
 {
+	int		i;
+	long	number;
+
 	if (ac == 1)
 		return (0);
-	int	i;
-
 	i = 1;
 	while (av[i])
 	{
-	if (input_parsing(av[i]))
-		ft_putendl_fd("Error", 2);
-	i++;
+		if (!is_number(av[i]))
+		{
+			ft_putendl_fd("Error", 2);
+			return (1);
+		}
+		number = ft_atoi(av[i]);
+		if (number > INT_MAX || number < INT_MIN)
+		{
+			ft_putendl_fd("Error", 2);
+			return (1);
+		}
+		i++;
 	}
 	return (0);
 }
