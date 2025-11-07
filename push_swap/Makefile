@@ -15,7 +15,6 @@ CFLAGS := -g -Wall -Werror -Wextra
 NAME = push_swap
 SRC := 	main.c \
 				push_swap.c \
-				utils.c \
        	input_parsing.c \
 				is_number.c
 OBJS := $(SRC:.c=.o)
