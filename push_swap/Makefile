@@ -11,28 +11,23 @@
 # **************************************************************************** #
 
 CC = cc
-CFLAGS := -g -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra
 NAME = push_swap
-SRC := 	main.c \
+SRC = 	main.c \
 				push_swap.c \
        	input_parsing.c \
 				is_number.c
-OBJS := $(SRC:.c=.o)
+OBJS = $(SRC:.c=.o)
 LIBFT_DIR = ./libft
-PRINTF_DIR = ./printf
 LIBFT_A = $(LIBFT_DIR)/libft.a
-PRINTF_A = $(PRINTF_DIR)/libftprintf.a
 
 all: $(NAME)
 
-$(NAME): $(OBJS) $(LIBFT_A) $(PRINTF_A)
-	$(CC) $(CFLAGS) $(OBJS) $(LIBFT_A) $(PRINTF_A) -o $(NAME)
+$(NAME): $(OBJS) $(LIBFT_A)
+	$(CC) $(CFLAGS) $(OBJS) $(LIBFT_A) -o $(NAME)
 
 $(LIBFT_A):
-	@make -C $(LIBFT_DIR)
-
-$(PRINTF_A):
-	@make -C $(PRINTF_DIR)
+	@make -C $(LIBFT_DIR) bonus
 
 %.o : %.c
 	$(CC) $(CFLAGS) -c $< -o $@
@@ -40,12 +35,10 @@ $(PRINTF_A):
 clean:
 	@rm -f $(OBJS)
 	@make -C $(LIBFT_DIR) clean
-	@make -C $(PRINTF_DIR) clean
 
 fclean: clean
 	@rm -f $(NAME)
 	@make -C $(LIBFT_DIR) fclean
-	@make -C $(PRINTF_DIR) fclean
 
 re: fclean all
 

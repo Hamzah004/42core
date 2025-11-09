@@ -26,8 +26,8 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *))
 void	del(void *con)
 {
 	free(con);
-}*/
-/*
+}
+
 int	main(void)
 {
 	t_list	*node1 = ft_lstnew(ft_strdup("hello"));
