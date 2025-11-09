@@ -15,6 +15,25 @@
 #include <limits.h>
 #include <stdlib.h>
 
+static int	check_duplicate(t_list *node)
+{
+	t_list *current;
+	t_list *checker;
+
+	current = node;
+	while (current)
+	{
+	checker = current->next;
+		while (checker)
+		{
+			if (*(int *)current->content == *(int *)checker->content)
+				return (0);
+			checker = checker->next;
+		}
+		current = current->next;
+	}
+	return (1);
+}
 static void	free_list_and_exit(t_list **stack)
 {
 	if (stack && *stack)
@@ -54,6 +73,8 @@ int	main(int ac, char **av)
 		ft_lstadd_back(&stack_a, new_node);
 		i++;
 	}
+	if (!(check_duplicate(stack_a)))
+		free_list_and_exit(&stack_a);
 	ft_lstclear(&stack_a, free);
 	return (0);
 }
