@@ -10,4 +10,30 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft/libft.h"
 #include "push_swap.h"
+
+void	free_stack_and_exit(t_list **stack)
+{
+	if (stack && *stack)
+		ft_lstclear(stack, free);
+	ft_putendl_fd("Error", 2);
+}
+
+void	init_stack(t_list **stack_a, int number)
+{
+	int		*content;
+	t_list	*new_node;
+
+	content = malloc(sizeof(int));
+	if (!content)
+		free_stack_and_exit(stack_a);
+	*content = (int)number;
+	new_node = ft_lstnew(content);
+	if (!new_node)
+	{
+		free(content);
+		free_stack_and_exit(stack_a);
+	}
+	ft_lstadd_back(stack_a, new_node);
+}

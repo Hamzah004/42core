@@ -13,6 +13,11 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
+# include "libft/libft.h"
+
+void	init_stack(t_list **stack_a, int number);
 char	*push_swap(char *input);
+void	free_stack_and_exit(t_list **stack);
 int		is_number(char *number);
+int		check_duplicate(t_list *node);
 #endif

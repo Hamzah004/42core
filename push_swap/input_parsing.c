@@ -10,34 +10,48 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./libft/libft.h"
-#include "push_swap.h"
+#include "libft/libft.h"
+
+int	is_number(char *number)
+{
+	int	i;
+
+	i = 0;
+	if (number[i] == '+' || number[i] == '-')
+		i++;
+	if (number[i] == '\0')
+		return (0);
+	while (number[i] != '\0')
+	{
+		if (!(ft_isdigit(number[i])))
+			return (0);
+		i++;
+	}
+	return (1);
+}
 
 int	input_parsing(char *str)
 {
-	int		i;
-	char	**number;
-	int		j;
-
-	i = 0;
-	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
-		i++;
-	i = 0;
-	number = ft_split(str, ' ');
-	while (number[i] != (void *)0)
-	{
-		j = 0;
-		if (number[i][j] == '+' || number[i][j] == '-')
-			j++;
-		if (number[i][j] == '\0')
-			return (1);
-		while (number[i][j])
-		{
-			if (!ft_isdigit(number[i][j]))
-				return (1);
-			j++;
-		}
-		i++;
-	}
+	(void)str;
 	return (0);
+}
+
+int	check_duplicate(t_list *node)
+{
+	t_list	*current;
+	t_list	*checker;
+
+	current = node;
+	while (current)
+	{
+		checker = current->next;
+		while (checker)
+		{
+			if (*(int *)current->content == *(int *)checker->content)
+				return (0);
+			checker = checker->next;
+		}
+		current = current->next;
+	}
+	return (1);
 }

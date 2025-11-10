@@ -16,7 +16,8 @@ NAME = push_swap
 SRC = 	main.c \
 				push_swap.c \
        	input_parsing.c \
-				is_number.c
+				stack.c
+
 OBJS = $(SRC:.c=.o)
 LIBFT_DIR = ./libft
 LIBFT_A = $(LIBFT_DIR)/libft.a
