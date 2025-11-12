@@ -30,12 +30,6 @@ int	is_number(char *number)
 	return (1);
 }
 
-int	input_parsing(char *str)
-{
-	(void)str;
-	return (0);
-}
-
 int	check_duplicate(t_list *node)
 {
 	t_list	*current;

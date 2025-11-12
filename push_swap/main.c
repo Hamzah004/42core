@@ -6,13 +6,14 @@
 /*   By: hbani-at <hbani-at@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/04 19:19:44 by hbani-at          #+#    #+#             */
-/*   Updated: 2025/11/09 17:45:15 by hbani-at         ###   ########.fr       */
+/*   Updated: 2025/11/12 02:06:30 by hbani-at         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./libft/libft.h"
 #include "push_swap.h"
 #include <limits.h>
+#include <stdio.h>
 
 int	main(int ac, char **av)
 {
@@ -36,6 +37,7 @@ int	main(int ac, char **av)
 	}
 	if (!(check_duplicate(stack_a)))
 		free_stack_and_exit(&stack_a);
+	printf("The number of nodes is: %d\n", ac - 1);
 	ft_lstclear(&stack_a, free);
 	return (0);
 }

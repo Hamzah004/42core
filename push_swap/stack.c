@@ -12,12 +12,14 @@
 
 #include "libft/libft.h"
 #include "push_swap.h"
+#include <stdlib.h>
 
 void	free_stack_and_exit(t_list **stack)
 {
 	if (stack && *stack)
 		ft_lstclear(stack, free);
 	ft_putendl_fd("Error", 2);
+	exit(1);
 }
 
 void	init_stack(t_list **stack_a, int number)
@@ -36,4 +38,54 @@ void	init_stack(t_list **stack_a, int number)
 		free_stack_and_exit(stack_a);
 	}
 	ft_lstadd_back(stack_a, new_node);
+}
+
+static int	find_max(t_list *node)
+{
+	t_list	*current;
+	t_list	*checker;
+	int		max;
+
+	current = node;
+	max = *(int *)current->content;
+	while (current)
+	{
+		checker = current->next;
+		while (checker)
+		{
+			if (max < *(int *)checker->content)
+				max = *(int *)checker->content;
+			checker = checker->next;
+		}
+		current = current->next;
+	}
+	return (max);
+}
+
+t_list	count_sort(t_list **stack, int n, int pos)
+{
+
+	t_list	*current;
+	int	count[10] = {0};
+
+	current = *stack;
+	while (current)
+	{
+		++count[(*(int *)current->content/pos)%10];
+	}
+
+}
+
+void radix_sort(t_list **stack, int ac)
+{
+	int	max;
+	int	pos;
+
+	max = find_max(*stack);
+	pos = 1;
+	while (max/pos > 0)
+	{
+		count_sort(stack,ac - 1, pos);
+		pos = pos * 10;
+	}
 }
