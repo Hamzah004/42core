@@ -15,15 +15,28 @@
 #include <limits.h>
 #include <stdio.h>
 
+void	print_stack(t_list *stack)
+{
+	t_list	*current;
+
+	current = stack;
+	while (current)
+	{
+		printf("%d\n", *(int *)current->content);
+		current = current->next;
+	}
+}
 int	main(int ac, char **av)
 {
 	t_list	*stack_a;
+	t_list	*stack_b;
 	int		i;
 	long	number;
 
 	if (ac < 2)
 		return (0);
 	stack_a = NULL;
+	stack_b = NULL;
 	i = 1;
 	while (i < ac)
 	{
@@ -37,7 +50,7 @@ int	main(int ac, char **av)
 	}
 	if (!(check_duplicate(stack_a)))
 		free_stack_and_exit(&stack_a);
-	printf("The number of nodes is: %d\n", ac - 1);
+	push_to_b(&stack_a, &stack_b);
 	ft_lstclear(&stack_a, free);
 	return (0);
 }

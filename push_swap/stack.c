@@ -37,55 +37,90 @@ void	init_stack(t_list **stack_a, int number)
 		free(content);
 		free_stack_and_exit(stack_a);
 	}
-	ft_lstadd_back(stack_a, new_node);
+	ft_lstadd_front(stack_a, new_node);
 }
 
-static int	find_max(t_list *node)
+// static int	find_max(t_list *node)
+// {
+// 	t_list	*current;
+// 	t_list	*checker;
+// 	int		max;
+//
+// 	current = node;
+// 	max = *(int *)current->content;
+// 	while (current)
+// 	{
+// 		checker = current->next;
+// 		while (checker)
+// 		{
+// 			if (max < *(int *)checker->content)
+// 				max = *(int *)checker->content;
+// 			checker = checker->next;
+// 		}
+// 		current = current->next;
+// 	}
+// 	return (max);
+// }
+
+// t_list	count_sort(t_list **stack, int n, int pos)
+// {
+//
+// 	t_list	*current;
+// 	int	count[10] = {0};
+//
+// 	current = *stack;
+// 	while (current)
+// 	{
+// 		++count[(*(int *)current->content/pos)%10];
+// 	}
+// }
+
+// void radix_sort(t_list **stack, int ac)
+// {
+// 	int	max;
+// 	int	pos;
+//
+// 	max = find_max(*stack);
+// 	pos = 1;
+// 	while (max/pos > 0)
+// 	{
+// 		count_sort(stack,ac - 1, pos);
+// 		pos = pos * 10;
+// 	}
+// }
+
+void	push_to_b(t_list **stack_a, t_list **stack_b)
 {
-	t_list	*current;
-	t_list	*checker;
-	int		max;
+	t_list	*last;
+	t_list	*tmp;
 
-	current = node;
-	max = *(int *)current->content;
-	while (current)
+	if (!stack_a || !*stack_a)
+		return ;
+	if ((*stack_a)->next == NULL)
 	{
-		checker = current->next;
-		while (checker)
-		{
-			if (max < *(int *)checker->content)
-				max = *(int *)checker->content;
-			checker = checker->next;
-		}
-		current = current->next;
+		last = *stack_a;
+		*stack_a = NULL;
+		ft_lstadd_front(stack_b, last);
+		return ;
 	}
-	return (max);
+	tmp = *stack_a;
+	while (tmp->next->next != NULL)
+		tmp = tmp->next;
+	last = tmp->next;
+	tmp->next = NULL;
+	ft_lstadd_front(stack_b, last);
 }
 
-t_list	count_sort(t_list **stack, int n, int pos)
-{
-
-	t_list	*current;
-	int	count[10] = {0};
-
-	current = *stack;
-	while (current)
-	{
-		++count[(*(int *)current->content/pos)%10];
-	}
-
-}
-
-void radix_sort(t_list **stack, int ac)
-{
-	int	max;
-	int	pos;
-
-	max = find_max(*stack);
-	pos = 1;
-	while (max/pos > 0)
-	{
-		count_sort(stack,ac - 1, pos);
-		pos = pos * 10;
-	}
-}
+// void	rotate_a(t_list **stack_a)
+// {
+// 	t_list	*start;
+// 	t_list	*last;
+// 	t_list *tmp;
+//
+// 	start = *stack_a;
+// 	tmp = *stack_a;
+// 	while (tmp->next->next != NULL)
+// 		tmp = tmp->next;
+// 	last = tmp->next;
+// 	tmp->next = start;
+// }
