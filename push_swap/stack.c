@@ -89,29 +89,30 @@ void	init_stack(t_list **stack_a, int number)
 // 	}
 // }
 
-void	push_to_b(t_list **stack_a, t_list **stack_b)
+void	push(t_list **src, t_list **dest)
 {
 	t_list	*tmp;
 
-	tmp = *stack_a;
-	if (!stack_a || !*stack_a)
+	if (!src || !*src)
 		return ;
-	tmp = *stack_a;
-	*stack_a = tmp->next;
-	ft_lstadd_front(stack_b, tmp);
-	return ;
+	tmp = *src;
+	*src = tmp->next;
+	ft_lstadd_front(dest, tmp);
 }
 
-// void	rotate_a(t_list **stack_a)
-// {
-// 	t_list	*start;
-// 	t_list	*last;
-// 	t_list *tmp;
-//
-// 	start = *stack_a;
-// 	tmp = *stack_a;
-// 	while (tmp->next->next != NULL)
-// 		tmp = tmp->next;
-// 	last = tmp->next;
-// 	tmp->next = start;
-// }
+void	rotate(t_list **stack)
+{
+	t_list	*first;
+	t_list	*tmp;
+	t_list	*last;
+
+	first = *stack;
+	tmp = *stack;
+	if (!stack || !*stack)
+		return ;
+	while (tmp->next->next != NULL)
+		tmp = tmp->next;
+	last = tmp->next;
+	last->next = first;
+	*stack = NULL;
+}
