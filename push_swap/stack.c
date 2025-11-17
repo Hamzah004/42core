@@ -91,24 +91,15 @@ void	init_stack(t_list **stack_a, int number)
 
 void	push_to_b(t_list **stack_a, t_list **stack_b)
 {
-	t_list	*last;
 	t_list	*tmp;
 
+	tmp = *stack_a;
 	if (!stack_a || !*stack_a)
 		return ;
-	if ((*stack_a)->next == NULL)
-	{
-		last = *stack_a;
-		*stack_a = NULL;
-		ft_lstadd_front(stack_b, last);
-		return ;
-	}
 	tmp = *stack_a;
-	while (tmp->next->next != NULL)
-		tmp = tmp->next;
-	last = tmp->next;
-	tmp->next = NULL;
-	ft_lstadd_front(stack_b, last);
+	*stack_a = tmp->next;
+	ft_lstadd_front(stack_b, tmp);
+	return ;
 }
 
 // void	rotate_a(t_list **stack_a)

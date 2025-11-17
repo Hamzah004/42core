@@ -51,6 +51,12 @@ int	main(int ac, char **av)
 	if (!(check_duplicate(stack_a)))
 		free_stack_and_exit(&stack_a);
 	push_to_b(&stack_a, &stack_b);
+	push_to_b(&stack_a, &stack_b);
+	push_to_b(&stack_a, &stack_b);
+	printf("stack A: \n");
+	print_stack(stack_a);
+	printf("stack B: \n");
+	print_stack(stack_b);
 	ft_lstclear(&stack_a, free);
 	return (0);
 }
