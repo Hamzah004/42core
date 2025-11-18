@@ -103,16 +103,13 @@ void	push(t_list **src, t_list **dest)
 void	rotate(t_list **stack)
 {
 	t_list	*first;
-	t_list	*tmp;
 	t_list	*last;
 
-	first = *stack;
-	tmp = *stack;
 	if (!stack || !*stack)
 		return ;
-	while (tmp->next->next != NULL)
-		tmp = tmp->next;
-	last = tmp->next;
+	first = *stack;
+	*stack = first->next;
+	last = ft_lstlast(*stack);
 	last->next = first;
-	*stack = NULL;
+	first->next = NULL;
 }
