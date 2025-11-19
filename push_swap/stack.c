@@ -105,6 +105,8 @@ void	rotate(t_list **stack)
 	t_list	*first;
 	t_list	*last;
 
+	if ((*stack)->next == NULL)
+		return ;
 	if (!stack || !*stack)
 		return ;
 	first = *stack;

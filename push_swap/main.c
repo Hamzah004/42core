@@ -19,6 +19,8 @@ void	print_stack(t_list *stack)
 {
 	t_list	*current;
 
+	if (!stack)
+		return ;
 	current = stack;
 	while (current)
 	{
@@ -29,14 +31,14 @@ void	print_stack(t_list *stack)
 int	main(int ac, char **av)
 {
 	t_list	*stack_a;
-	t_list	*stack_b;
+	// t_list	*stack_b;
 	int		i;
 	long	number;
 
 	if (ac < 2)
 		return (0);
 	stack_a = NULL;
-	stack_b = NULL;
+	// stack_b = NULL;
 	i = 1;
 	while (i < ac)
 	{
@@ -50,16 +52,10 @@ int	main(int ac, char **av)
 	}
 	if (!(check_duplicate(stack_a)))
 		free_stack_and_exit(&stack_a);
-
-	push(&stack_a, &stack_b);
-	push(&stack_a, &stack_b);
-	push(&stack_a, &stack_b);
 	printf("stack A before: \n");
 	print_stack(stack_a);
-	rotate(&stack_a);
 	printf("stack A after: \n");
 	print_stack(stack_a);
-
 	ft_lstclear(&stack_a, free);
 	return (0);
 }

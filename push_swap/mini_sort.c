@@ -12,7 +12,7 @@
 
 #include "libft/libft.h"
 
-void	sort_three_numbers(t_list **stack_a, t_list **stack_b) // 1, 2, 3
+void	sort_three_numbers(t_list **stack_a) // 1, 2, 3
 {
 }
 
