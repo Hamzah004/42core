@@ -12,6 +12,7 @@
 
 #include "libft/libft.h"
 #include "push_swap.h"
+#include <inttypes.h>
 #include <stdlib.h>
 
 void	free_stack_and_exit(t_list **stack)
@@ -114,4 +115,13 @@ void	rotate(t_list **stack)
 	last = ft_lstlast(*stack);
 	last->next = first;
 	first->next = NULL;
+}
+
+int	is_sorted(t_list *stack_a)
+{
+	if (!stack_a || !stack_a->next)
+		return (1);
+	if (*(int *)stack_a->content > *(int *)stack_a->next->content)
+		return (0);
+	return (is_sorted(stack_a->next));
 }

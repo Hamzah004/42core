@@ -15,6 +15,7 @@
 
 # include "libft/libft.h"
 
+int	is_sorted(t_list *stack_a);
 void	init_stack(t_list **stack_a, int number);
 char	*push_swap(char *input);
 void	push(t_list **stack_a, t_list **stack_b);

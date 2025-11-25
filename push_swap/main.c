@@ -54,8 +54,10 @@ int	main(int ac, char **av)
 		free_stack_and_exit(&stack_a);
 	printf("stack A before: \n");
 	print_stack(stack_a);
-	printf("stack A after: \n");
-	print_stack(stack_a);
+	if (is_sorted(stack_a))
+		printf("sorted\n");
+	else
+		printf("not sorted\n");
 	ft_lstclear(&stack_a, free);
 	return (0);
 }
