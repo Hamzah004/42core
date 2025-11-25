@@ -38,7 +38,7 @@ void	init_stack(t_list **stack_a, int number)
 		free(content);
 		free_stack_and_exit(stack_a);
 	}
-	ft_lstadd_front(stack_a, new_node);
+	ft_lstadd_back(stack_a, new_node);
 }
 
 // static int	find_max(t_list *node)

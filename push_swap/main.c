@@ -52,7 +52,7 @@ int	main(int ac, char **av)
 	}
 	if (!(check_duplicate(stack_a)))
 		free_stack_and_exit(&stack_a);
-	printf("stack A before: \n");
+	printf("stack A: \n");
 	print_stack(stack_a);
 	if (is_sorted(stack_a))
 		printf("sorted\n");
