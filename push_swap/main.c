@@ -34,11 +34,11 @@ int	main(int ac, char **av)
 	int		i;
 	long	number;
 
-	// t_list	*stack_b;
+	t_list	*stack_b;
 	if (ac < 2)
 		return (0);
 	stack_a = NULL;
-	// stack_b = NULL;
+	stack_b = NULL;
 	i = 1;
 	while (i < ac)
 	{
@@ -60,10 +60,12 @@ int	main(int ac, char **av)
 	// printf("size of linked list: %d\n", ft_lstsize(stack_a));
 	// if (!is_sorted(stack_a))
 	// 	printf("not sorted\n");
+
+	// printf("pos of min value in the stack: %d\n", find_min_pos(stack_a));
 	if (!is_sorted(stack_a))
 	{
 		if (ft_lstsize(stack_a) <= 5)
-			mini_sort(&stack_a);
+			mini_sort(&stack_a,&stack_b);
 	}
 	printf("stack after sort:\n");
 	print_stack(stack_a);
