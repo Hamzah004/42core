@@ -11,15 +11,46 @@
 /* ************************************************************************** */
 
 #include "libft/libft.h"
+#include "push_swap.h"
 
-void	sort_three_numbers(t_list **stack_a) // 1, 2, 3
+static void	sort_three_numbers(t_list **stack)
 {
+	int	value1;
+	int	value2;
+	int	value3;
+
+	value1 = *(int *)(*stack)->content;
+	value2 = *(int *)(*stack)->next->content;
+	value3 = *(int *)(*stack)->next->next->content;
+	if (value1 > value2 && value2 > value3 && value1 > value3)
+	{
+		swap(stack);
+		rev_rotate(stack);
+	}
+	else if (value1 > value2 && value2 < value3 && value1 > value3)
+		rotate(stack);
+	else if (value1 < value2 && value2 > value3 && value1 > value3)
+		rev_rotate(stack);
+	else if (value1 > value2 && value2 < value3 && value1 < value3)
+		swap(stack);
+	else if (value1 < value2 && value2 > value3 && value1 < value3)
+	{
+		swap(stack);
+		rotate(stack);
+	}
 }
 
-void	sort_four_numbers(t_list **stack_a, t_list **stack_b) // 1, 2, 3, 4
-{
-}
+// static void	sort_four_numbers(t_list **stack_a, t_list **stack_b) // 1, 2,
+	// {
+	// }
+	//
+	// static void	sort_five_numbers(t_list **stack_a, t_list **stack_b) // 1,
+	// {
+	// }
 
-void	sort_five_numbers(t_list **stack_a, t_list **stack_b) // 1, 2, 3, 4, 5
+	void
+	mini_sort(t_list **stack_a)
 {
+	if (ft_lstsize(*stack_a) == 3)
+		sort_three_numbers(stack_a);
 }

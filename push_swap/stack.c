@@ -13,6 +13,7 @@
 #include "libft/libft.h"
 #include "push_swap.h"
 #include <inttypes.h>
+#include <stdio.h>
 #include <stdlib.h>
 
 void	free_stack_and_exit(t_list **stack)
@@ -41,54 +42,27 @@ void	init_stack(t_list **stack_a, int number)
 	ft_lstadd_back(stack_a, new_node);
 }
 
-// static int	find_max(t_list *node)
-// {
-// 	t_list	*current;
-// 	t_list	*checker;
-// 	int		max;
-//
-// 	current = node;
-// 	max = *(int *)current->content;
-// 	while (current)
-// 	{
-// 		checker = current->next;
-// 		while (checker)
-// 		{
-// 			if (max < *(int *)checker->content)
-// 				max = *(int *)checker->content;
-// 			checker = checker->next;
-// 		}
-// 		current = current->next;
-// 	}
-// 	return (max);
-// }
+int	find_max(t_list *node)
+{
+	t_list	*current;
+	t_list	*checker;
+	int		max;
 
-// t_list	count_sort(t_list **stack, int n, int pos)
-// {
-//
-// 	t_list	*current;
-// 	int	count[10] = {0};
-//
-// 	current = *stack;
-// 	while (current)
-// 	{
-// 		++count[(*(int *)current->content/pos)%10];
-// 	}
-// }
-
-// void radix_sort(t_list **stack, int ac)
-// {
-// 	int	max;
-// 	int	pos;
-//
-// 	max = find_max(*stack);
-// 	pos = 1;
-// 	while (max/pos > 0)
-// 	{
-// 		count_sort(stack,ac - 1, pos);
-// 		pos = pos * 10;
-// 	}
-// }
+	current = node;
+	max = *(int *)current->content;
+	while (current)
+	{
+		checker = current->next;
+		while (checker)
+		{
+			if (max < *(int *)checker->content)
+				max = *(int *)checker->content;
+			checker = checker->next;
+		}
+		current = current->next;
+	}
+	return (max);
+}
 
 void	push(t_list **src, t_list **dest)
 {
@@ -115,6 +89,36 @@ void	rotate(t_list **stack)
 	last = ft_lstlast(*stack);
 	last->next = first;
 	first->next = NULL;
+}
+
+void	rev_rotate(t_list **stack)
+{
+	t_list	*last;
+	t_list	*tmp;
+
+	if ((*stack)->next == NULL)
+		return ;
+	if (!stack || !*stack)
+		return ;
+	tmp = *stack;
+	while (tmp->next->next != NULL)
+		tmp = tmp->next;
+	last = tmp->next;
+	ft_lstadd_front(stack, last);
+	tmp->next = NULL;
+}
+
+void	swap(t_list **stack)
+{
+	t_list	*tmp;
+
+	if ((*stack)->next == NULL)
+		return ;
+	if (!stack || !*stack)
+		return ;
+	tmp = (*stack)->next;
+	(*stack)->next = tmp->next;
+	ft_lstadd_front(stack, tmp);
 }
 
 int	is_sorted(t_list *stack_a)

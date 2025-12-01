@@ -31,10 +31,10 @@ void	print_stack(t_list *stack)
 int	main(int ac, char **av)
 {
 	t_list	*stack_a;
-	// t_list	*stack_b;
 	int		i;
 	long	number;
 
+	// t_list	*stack_b;
 	if (ac < 2)
 		return (0);
 	stack_a = NULL;
@@ -52,12 +52,27 @@ int	main(int ac, char **av)
 	}
 	if (!(check_duplicate(stack_a)))
 		free_stack_and_exit(&stack_a);
-	printf("stack A: \n");
+	printf("stack before sort:\n");
 	print_stack(stack_a);
-	if (is_sorted(stack_a))
-		printf("sorted\n");
-	else
-		printf("not sorted\n");
+	// swap(&stack_a);
+	// printf("stack a after:\n");
+	// print_stack(stack_a);
+	// printf("size of linked list: %d\n", ft_lstsize(stack_a));
+	// if (!is_sorted(stack_a))
+	// 	printf("not sorted\n");
+	if (!is_sorted(stack_a))
+	{
+		if (ft_lstsize(stack_a) <= 5)
+			mini_sort(&stack_a);
+	}
+	printf("stack after sort:\n");
+	print_stack(stack_a);
+	// if (is_sorted(stack_a))
+	// 	printf("sorted\n");
+	// printf("stack top: %d\n", stack_a->content);
+	// rev_rotate(&stack_a);
+	// printf("stack a after:\n");
+	// print_stack(stack_a);
 	ft_lstclear(&stack_a, free);
 	return (0);
 }

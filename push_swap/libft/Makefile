@@ -13,7 +13,7 @@
 
 NAME := libft.a
 CC := cc
-CFLAGS := -Wall -Werror -Wextra
+CFLAGS := -g3 -Wall -Werror -Wextra
 SRC := ft_atoi.c \
        ft_bzero.c \
        ft_calloc.c \

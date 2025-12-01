@@ -15,12 +15,16 @@
 
 # include "libft/libft.h"
 
-int	is_sorted(t_list *stack_a);
+int		is_sorted(t_list *stack_a);
 void	init_stack(t_list **stack_a, int number);
 char	*push_swap(char *input);
 void	push(t_list **stack_a, t_list **stack_b);
 void	rotate(t_list **stack);
+void	swap(t_list **stack);
+void	rev_rotate(t_list **stack);
 void	free_stack_and_exit(t_list **stack);
 int		is_number(char *number);
 int		check_duplicate(t_list *node);
+int		find_max(t_list *node);
+void	mini_sort(t_list **stack_a);
 #endif
