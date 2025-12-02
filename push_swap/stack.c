@@ -89,63 +89,6 @@ int	find_min_pos(t_list *node)
 	return (node_pos);
 }
 
-void	push(t_list **src, t_list **dest)
-{
-	t_list	*tmp;
-
-	if (!src || !*src)
-		return ;
-	tmp = *src;
-	*src = tmp->next;
-	ft_lstadd_front(dest, tmp);
-}
-
-void	rotate(t_list **stack)
-{
-	t_list	*first;
-	t_list	*last;
-
-	if ((*stack)->next == NULL)
-		return ;
-	if (!stack || !*stack)
-		return ;
-	first = *stack;
-	*stack = first->next;
-	last = ft_lstlast(*stack);
-	last->next = first;
-	first->next = NULL;
-}
-
-void	rev_rotate(t_list **stack)
-{
-	t_list	*last;
-	t_list	*tmp;
-
-	if ((*stack)->next == NULL)
-		return ;
-	if (!stack || !*stack)
-		return ;
-	tmp = *stack;
-	while (tmp->next->next != NULL)
-		tmp = tmp->next;
-	last = tmp->next;
-	ft_lstadd_front(stack, last);
-	tmp->next = NULL;
-}
-
-void	swap(t_list **stack)
-{
-	t_list	*tmp;
-
-	if ((*stack)->next == NULL)
-		return ;
-	if (!stack || !*stack)
-		return ;
-	tmp = (*stack)->next;
-	(*stack)->next = tmp->next;
-	ft_lstadd_front(stack, tmp);
-}
-
 int	is_sorted(t_list *stack_a)
 {
 	if (!stack_a || !stack_a->next)

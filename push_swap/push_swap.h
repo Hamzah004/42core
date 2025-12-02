@@ -18,10 +18,14 @@
 int		is_sorted(t_list *stack_a);
 void	init_stack(t_list **stack_a, int number);
 char	*push_swap(char *input);
-void	push(t_list **stack_a, t_list **stack_b);
-void	rotate(t_list **stack);
-void	swap(t_list **stack);
-void	rev_rotate(t_list **stack);
+void	push_to_a(t_list **stack_b, t_list **stack_a);
+void	push_to_b(t_list **stack_a, t_list **stack_b);
+void	swap_a(t_list **stack_a);
+void	swap_b(t_list **stack_b);
+void	rotate_a(t_list **stack_a);
+void	rotate_b(t_list **stack_b);
+void	reverse_rotate_a(t_list **stack_a);
+void	reverse_rotate_b(t_list **stack_b);
 void	free_stack_and_exit(t_list **stack);
 int		is_number(char *number);
 int		check_duplicate(t_list *node);

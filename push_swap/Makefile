@@ -17,7 +17,12 @@ SRC = 	main.c \
 				push_swap.c \
        	input_parsing.c \
 				stack.c \
-				mini_sort.c
+				mini_sort.c \
+				push.c \
+				rotate.c \
+				reverse_rotate.c \
+				swap.c
+				
 
 OBJS = $(SRC:.c=.o)
 LIBFT_DIR = ./libft
