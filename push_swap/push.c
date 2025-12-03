@@ -30,7 +30,7 @@ void	push_to_b(t_list **stack_a, t_list **stack_b)
 	ft_putendl_fd("pb", 1);
 }
 
-void	push_to_a(t_list **stack_a, t_list **stack_b)
+void	push_to_a(t_list **stack_b, t_list **stack_a)
 {
 	push(stack_b, stack_a);
 	ft_putendl_fd("pa", 1);

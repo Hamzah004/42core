@@ -63,6 +63,8 @@ int	main(int argc, char **argv)
 	{
 		if (ft_lstsize(stack_a) <= 5)
 			mini_sort(&stack_a, &stack_b);
+		else
+		 radix_sort(&stack_a, &stack_b);
 	}
 	ft_lstclear(&stack_a, free);
 	return (0);

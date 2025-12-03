@@ -15,6 +15,7 @@
 
 # include "libft/libft.h"
 
+void	radix_sort(t_list **stack_a, t_list **stack_b);
 int		is_sorted(t_list *stack_a);
 void	init_stack(t_list **stack_a, int number);
 char	*push_swap(char *input);
@@ -32,4 +33,6 @@ int		check_duplicate(t_list *node);
 int		find_max(t_list *node);
 int		find_min_pos(t_list *node);
 void	mini_sort(t_list **stack_a, t_list **stack_b);
+t_list	*insertion_sort(t_list **stack_a);
+void	indices_list(t_list **stack_a);
 #endif

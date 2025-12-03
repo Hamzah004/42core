@@ -11,6 +11,8 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
+#include <unistd.h>
 
 t_list	*ft_lstnew(void *content)
 {
@@ -19,7 +21,13 @@ t_list	*ft_lstnew(void *content)
 	new_node = malloc(sizeof(t_list));
 	if (!new_node)
 		return (NULL);
-	new_node->content = content;
+	new_node->content = malloc(sizeof(int));
+	if (!new_node->content)
+	{
+		free(new_node);
+		return NULL;
+	}
+	*(int *)new_node->content = *(int *)content;
 	new_node->next = NULL;
 	return (new_node);
 }

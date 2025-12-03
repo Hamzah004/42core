@@ -13,6 +13,7 @@
 #include "libft/libft.h"
 #include "push_swap.h"
 #include <inttypes.h>
+#include <iso646.h>
 #include <stdlib.h>
 
 void	free_stack_and_exit(t_list **stack)
@@ -39,26 +40,6 @@ void	init_stack(t_list **stack_a, int number)
 		free_stack_and_exit(stack_a);
 	}
 	ft_lstadd_back(stack_a, new_node);
-}
-
-int	find_max(t_list *node)
-{
-	t_list	*current;
-	int		max_value;
-	int		value;
-
-	if (!node)
-		return (-1);
-	current = node;
-	max_value = *(int *)current->content;
-	while (current)
-	{
-		value = *(int *)current->content;
-		if (max_value < value)
-			max_value = value;
-		current = current->next;
-	}
-	return (max_value);
 }
 
 int	find_min_pos(t_list *node)

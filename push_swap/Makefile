@@ -21,7 +21,8 @@ SRC = 	main.c \
 				push.c \
 				rotate.c \
 				reverse_rotate.c \
-				swap.c
+				swap.c \
+				radix_sort.c
 				
 
 OBJS = $(SRC:.c=.o)
