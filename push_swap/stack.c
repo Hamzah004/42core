@@ -30,7 +30,7 @@ void	init_stack(t_list **stack_a, int number)
 	content = malloc(sizeof(int));
 	if (!content)
 		free_stack_and_exit(stack_a);
-	*content = (int)number;
+	*content = number;
 	new_node = ft_lstnew(content);
 	if (!new_node)
 	{
