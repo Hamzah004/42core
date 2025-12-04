@@ -12,7 +12,6 @@
 
 #include "libft.h"
 #include <stdlib.h>
-#include <unistd.h>
 
 t_list	*ft_lstnew(void *content)
 {
@@ -25,7 +24,7 @@ t_list	*ft_lstnew(void *content)
 	if (!new_node->content)
 	{
 		free(new_node);
-		return NULL;
+		return (NULL);
 	}
 	*(int *)new_node->content = *(int *)content;
 	new_node->next = NULL;

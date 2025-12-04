@@ -10,13 +10,25 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft/libft.h"
 #include "push_swap.h"
 
-char	*push_swap(char *input)
+static int	is_sorted(t_list *stack_a)
 {
-	char	*output;
+	if (!stack_a || !stack_a->next)
+		return (1);
+	if (*(int *)stack_a->content > *(int *)stack_a->next->content)
+		return (0);
+	return (is_sorted(stack_a->next));
+}
 
-	(void)input;
-	output = "this";
-	return (output);
+void	push_swap(t_list **stack_a, t_list **stack_b)
+{
+	if (!is_sorted(*stack_a))
+	{
+		if (ft_lstsize(*stack_a) <= 5)
+			mini_sort(stack_a, stack_b);
+		else
+			radix_sort(stack_a, stack_b);
+	}
 }

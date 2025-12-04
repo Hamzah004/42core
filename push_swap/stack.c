@@ -12,8 +12,6 @@
 
 #include "libft/libft.h"
 #include "push_swap.h"
-#include <inttypes.h>
-#include <iso646.h>
 #include <stdlib.h>
 
 void	free_stack_and_exit(t_list **stack)
@@ -68,13 +66,4 @@ int	find_min_pos(t_list *node)
 		i++;
 	}
 	return (node_pos);
-}
-
-int	is_sorted(t_list *stack_a)
-{
-	if (!stack_a || !stack_a->next)
-		return (1);
-	if (*(int *)stack_a->content > *(int *)stack_a->next->content)
-		return (0);
-	return (is_sorted(stack_a->next));
 }

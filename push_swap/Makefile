@@ -15,14 +15,15 @@ CFLAGS = -g3 -Wall -Werror -Wextra
 NAME = push_swap
 SRC = 	main.c \
 				push_swap.c \
-       	input_parsing.c \
+       	input_validation.c \
 				stack.c \
 				mini_sort.c \
 				push.c \
 				rotate.c \
 				reverse_rotate.c \
 				swap.c \
-				radix_sort.c
+				radix_sort.c \
+				insertion_sort.c
 				
 
 OBJS = $(SRC:.c=.o)

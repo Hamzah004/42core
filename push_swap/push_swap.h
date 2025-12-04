@@ -16,9 +16,9 @@
 # include "libft/libft.h"
 
 void	radix_sort(t_list **stack_a, t_list **stack_b);
-int		is_sorted(t_list *stack_a);
 void	init_stack(t_list **stack_a, int number);
-char	*push_swap(char *input);
+void	push_swap(t_list **stack_a, t_list **stack_b);
+void	input_parsing(int argc, char **argv, t_list **stack_a);
 void	push_to_a(t_list **stack_b, t_list **stack_a);
 void	push_to_b(t_list **stack_a, t_list **stack_b);
 void	swap_a(t_list **stack_a);

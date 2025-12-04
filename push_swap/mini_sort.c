@@ -13,6 +13,31 @@
 #include "libft/libft.h"
 #include "push_swap.h"
 
+static void	move_min_to_top(t_list **stack_a)
+{
+	int	min_pos;
+	int	stack_size;
+
+	stack_size = ft_lstsize(*stack_a);
+	min_pos = find_min_pos(*stack_a);
+	if (min_pos > stack_size / 2)
+	{
+		while (min_pos < stack_size)
+		{
+			reverse_rotate_a(stack_a);
+			min_pos++;
+		}
+	}
+	else
+	{
+		while (min_pos > 0)
+		{
+			rotate_a(stack_a);
+			min_pos--;
+		}
+	}
+}
+
 static void	sort_three_numbers(t_list **stack)
 {
 	int	value1;
@@ -42,18 +67,7 @@ static void	sort_three_numbers(t_list **stack)
 
 static void	sort_four_numbers(t_list **stack_a, t_list **stack_b)
 {
-	int	min_pos;
-
-	min_pos = find_min_pos(*stack_a);
-	if (min_pos == 3)
-		reverse_rotate_a(stack_a);
-	else if (min_pos == 2)
-	{
-		reverse_rotate_a(stack_a);
-		reverse_rotate_a(stack_a);
-	}
-	else if (min_pos == 1)
-		rotate_a(stack_a);
+	move_min_to_top(stack_a);
 	push_to_b(stack_a, stack_b);
 	sort_three_numbers(stack_a);
 	push_to_a(stack_b, stack_a);
@@ -61,23 +75,7 @@ static void	sort_four_numbers(t_list **stack_a, t_list **stack_b)
 
 static void	sort_five_numbers(t_list **stack_a, t_list **stack_b)
 {
-	int	min_pos;
-
-	min_pos = find_min_pos(*stack_a);
-	if (min_pos == 1)
-		rotate_a(stack_a);
-	else if (min_pos == 2)
-	{
-		rotate_a(stack_a);
-		rotate_a(stack_a);
-	}
-	else if (min_pos == 3)
-	{
-		reverse_rotate_a(stack_a);
-		reverse_rotate_a(stack_a);
-	}
-	else if (min_pos == 4)
-		reverse_rotate_a(stack_a);
+	move_min_to_top(stack_a);
 	push_to_b(stack_a, stack_b);
 	sort_four_numbers(stack_a, stack_b);
 	push_to_a(stack_b, stack_a);

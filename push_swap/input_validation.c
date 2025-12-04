@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   input_parsing.c                                    :+:      :+:    :+:   */
+/*   input_validation.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hbani-at <hbani-at@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -11,6 +11,26 @@
 /* ************************************************************************** */
 
 #include "libft/libft.h"
+#include "push_swap.h"
+#include <limits.h>
+
+void	input_parsing(int argc, char **argv, t_list **stack_a)
+{
+	int		i;
+	long	number;
+
+	i = 1;
+	while (i < argc)
+	{
+		if (!is_number(argv[i]))
+			free_stack_and_exit(stack_a);
+		number = ft_atoi(argv[i]);
+		if (number > INT_MAX || number < INT_MIN)
+			free_stack_and_exit(stack_a);
+		init_stack(stack_a, number);
+		i++;
+	}
+}
 
 int	is_number(char *number)
 {

@@ -11,9 +11,6 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdatomic.h>
-#include <stdint.h>
-#include <stdio.h>
 
 static size_t	count_word(char const *s, char c)
 {
