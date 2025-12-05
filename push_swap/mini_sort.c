@@ -86,7 +86,9 @@ void	mini_sort(t_list **stack_a, t_list **stack_b)
 	int	stack_size;
 
 	stack_size = ft_lstsize(*stack_a);
-	if (stack_size == 3)
+	if (stack_size == 2)
+		swap_a(stack_a);
+	else if (stack_size == 3)
 		sort_three_numbers(stack_a);
 	else if (stack_size == 4)
 		sort_four_numbers(stack_a, stack_b);

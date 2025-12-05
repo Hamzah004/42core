@@ -75,4 +75,5 @@ void	indices_list(t_list **stack_a)
 		}
 		current = current->next;
 	}
+	ft_lstclear(&sorted_list, NULL);
 }

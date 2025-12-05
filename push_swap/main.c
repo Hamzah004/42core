@@ -27,5 +27,6 @@ int	main(int argc, char **argv)
 		free_stack_and_exit(&stack_a);
 	push_swap(&stack_a, &stack_b);
 	ft_lstclear(&stack_a, free);
+	
 	return (0);
 }
