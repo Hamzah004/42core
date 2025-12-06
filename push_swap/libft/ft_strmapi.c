@@ -29,8 +29,3 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int i, char c))
 	array[i] = '\0';
 	return (array);
 }
-/*
-int	main(void)
-{
-	printf("%s",ft_strmapi("abc", f));
-}*/

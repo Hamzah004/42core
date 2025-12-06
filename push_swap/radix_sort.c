@@ -13,7 +13,7 @@
 #include "libft/libft.h"
 #include "push_swap.h"
 
-int	find_max(t_list *node)
+static int	find_max(t_list *node)
 {
 	t_list	*current;
 	int		max_value;

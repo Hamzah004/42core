@@ -27,9 +27,3 @@ char	*ft_strrchr(const char *s, int c)
 		return ((char *)&s[i]);
 	return (NULL);
 }
-/*
-int	main(void)
-{
-	printf("Me: %s\n",ft_strrchr("this is good", 'i'));
-	printf("Original: %s\n",strrchr("this is good", 'i'));
-}*/

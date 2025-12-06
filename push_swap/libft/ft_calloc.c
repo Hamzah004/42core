@@ -24,28 +24,3 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	ft_bzero(array, size * nmemb);
 	return (array);
 }
-/*
-int	main(void)
-{
-	int	*arr;
-	int	n;
-
-	n = 5;
-	arr = (int *)ft_calloc(n, sizeof(int));
-	// Print the initialized values (all will be 0)
-	printf("Initial values: ");
-	for (int i = 0; i < n; i++)
-	{
-		printf("%d ", arr[i]);
-	}
-	// Use the array
-	for (int i = 0; i < n; i++)
-	{
-		arr[i] = i + 1;
-	}
-	printf("\nAfter assignment: ");
-	for (int i = 0; i < n; i++)
-	{
-		printf("%d ", arr[i]);
-	}
-}*/

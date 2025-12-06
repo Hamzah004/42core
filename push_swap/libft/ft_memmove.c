@@ -28,11 +28,3 @@ void	*ft_memmove(void *dest, void const *src, size_t n)
 	}
 	return (dest_temp);
 }
-/*
-int	main(void)
-{
-		char	array[] = "1";
-		char	*dest;
-
-	memmove(NULL, NULL, 1);
-}*/

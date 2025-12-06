@@ -23,10 +23,3 @@ void	ft_striteri(char *s, void (*f)(unsigned int i, char *c))
 		i++;
 	}
 }
-/*
-int	main(void)
-{
-	char	*s = "abc";
-	ft_striteri(s,f);
-	printf("%s\n", s);
-}*/

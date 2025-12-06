@@ -59,8 +59,3 @@ char	*ft_itoa(int n)
 	no_space(s, sign, len, number);
 	return (s);
 }
-/*
- int	main(void)
- {
-		printf("%s", 	ft_itoa(134));
- }*/

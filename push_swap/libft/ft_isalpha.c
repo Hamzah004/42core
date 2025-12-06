@@ -16,9 +16,3 @@ int	ft_isalpha(int c)
 {
 	return ((c >= 97 && c <= 122) || (c >= 65 && c <= 90));
 }
-/*
-int main (void)
-{
-	printf("original: %d\n",isalpha(34));
-	printf("me: %d\n",ft_isalpha(90));
-}*/

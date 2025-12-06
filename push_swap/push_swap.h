@@ -30,7 +30,6 @@ void	reverse_rotate_b(t_list **stack_b);
 void	free_stack_and_exit(t_list **stack);
 int		is_number(char *number);
 int		check_duplicate(t_list *node);
-int		find_max(t_list *node);
 int		find_min_pos(t_list *node);
 void	mini_sort(t_list **stack_a, t_list **stack_b);
 t_list	*insertion_sort(t_list **stack_a);

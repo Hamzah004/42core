@@ -23,9 +23,3 @@ size_t	ft_strlen(const char *s)
 	}
 	return (i);
 }
-/*
-int	main(void)
-{
-	printf("Me: %zu\n",ft_strlen("this is good"));
-	printf("Original: %zu\n",strlen("this is good"));
-}*/

@@ -29,8 +29,3 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	ft_strlcpy(new_string + s1_len, s2, s2_len + 1);
 	return (new_string);
 }
-/*
-int	main(void)
-{
-	printf("%s", ft_strjoin("hamzah ", "bani-ata"));
-}*/

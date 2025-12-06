@@ -24,17 +24,3 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	}
 	return (dest);
 }
-/*
-int	main(void)
-{
-	int	number[] = {1,2,3,4};
-	int	new[] = {};
-	ft_memcpy(new, number,sizeof(number));
-	int	i  = 0;
-	while (i < 4)
-	{
-	printf("%d", new[i]);
-		i++;
-	}
-	return (0);
-}*/

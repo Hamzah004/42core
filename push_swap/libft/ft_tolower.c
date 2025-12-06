@@ -18,9 +18,3 @@ int	ft_tolower(int c)
 		return (c + 32);
 	return (c);
 }
-/*
-int	main(void)
-{
-	printf("Me: %d\n",ft_tolower('A'));
-	printf("Original: %d\n",tolower('A'));
-}*/

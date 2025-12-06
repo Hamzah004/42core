@@ -16,9 +16,3 @@ int	ft_isdigit(int c)
 {
 	return (c >= '0' && c <= '9');
 }
-/*
-int	main(void)
-{
-	printf("me: %d\n",ft_isdigit('1'));
-	printf("original: %d\n",isdigit('1'));
-}*/

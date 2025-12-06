@@ -18,9 +18,3 @@ int	ft_toupper(int c)
 		return (c - 32);
 	return (c);
 }
-/*
-int	main(void)
-{
-	printf("Me: %d\n",ft_toupper('+'));
-	printf("Original: %d\n",toupper('+'));
-}*/
