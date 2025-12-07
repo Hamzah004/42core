@@ -11,9 +11,16 @@
 # **************************************************************************** #
 
 
+COM_COLOR   = \033[0;34m
+OK_COLOR    = \033[0;32m
+NO_COLOR    = \033[m
+
+OK_STRING    = "[OK]"
+COM_STRING   = "Compiling"
+
 NAME := libft.a
 CC := cc
-CFLAGS := -Wall -Werror -Wextra
+CFLAGS := -g3 -Wall -Werror -Wextra
 SRC := ft_atoi.c \
        ft_bzero.c \
        ft_calloc.c \
@@ -68,22 +75,27 @@ BONUS_MARKER := .bonus_marker
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	ar rcs $(NAME) $(OBJ)
+	@ar rcs $(NAME) $(OBJ)
+	@printf "$(OK_COLOR)$(OK_STRING) libft archive cerated\n$(NO_COLOR)"
 
 %.o : %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+	@$(CC) $(CFLAGS) -c $< -o $@
+	@printf "%b" "$(COM_COLOR)$(COM_STRING) $<\n$(NO_COLOR)"
 
 bonus: $(BONUS_MARKER)
 
 $(BONUS_MARKER): $(BONUS_OBJ) $(OBJ)
-	ar rcs $(NAME) $(OBJ) $(BONUS_OBJ)
-	touch $(BONUS_MARKER)
+	@ar rcs $(NAME) $(OBJ) $(BONUS_OBJ)
+	@touch $(BONUS_MARKER)
+	@printf "$(OK_COLOR)$(OK_STRING) libft archive cerated with bonus part\n$(NO_COLOR)"
 
 clean:
-	rm -f $(OBJ) $(BONUS_OBJ) $(BONUS_MARKER)
+	@rm -f $(OBJ) $(BONUS_OBJ) $(BONUS_MARKER)
+	@printf "%b" "$(OK_COLOR)$(OK_STRING) Libft Object files cleaned\n$(NO_COLOR)"
 
 fclean: clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
+	@printf "%b" "$(OK_COLOR)$(OK_STRING) Libft archive cleaned\n$(NO_COLOR)"
 
 re: fclean all
 
