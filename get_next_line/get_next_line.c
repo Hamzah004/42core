@@ -56,7 +56,9 @@ static char	*new_stash(char *stash)
 		i++;
 	new_stash = ft_substr(stash, i, ft_strlen(stash) - i);
 	free(stash);
-	if (!new_stash || new_stash[0] == '\0')
+	if (!new_stash)
+		return (NULL);
+	if (new_stash[0] == '\0')
 	{
 		free(new_stash);
 		return (NULL);
@@ -69,7 +71,7 @@ static char	*read_file(int fd, char *stash, char *buffer)
 	ssize_t	bytes_read;
 
 	bytes_read = 1;
-	while (bytes_read > 0 && !ft_strchr(stash, '\n'))
+	while (bytes_read > 0 && (!stash || !ft_strchr(stash, '\n')))
 	{
 		bytes_read = read(fd, buffer, BUFFER_SIZE);
 		if (bytes_read < 0)
@@ -81,10 +83,7 @@ static char	*read_file(int fd, char *stash, char *buffer)
 		buffer[bytes_read] = '\0';
 		stash = ft_strjoin_free(stash, buffer);
 		if (!stash)
-		{
-			free(buffer);
 			return (NULL);
-		}
 	}
 	return (stash);
 }
@@ -102,7 +101,10 @@ char	*get_next_line(int fd)
 		return (NULL);
 	stash = read_file(fd, stash, buffer);
 	if (!stash)
+	{
+		free(buffer);
 		return (NULL);
+	}
 	free(buffer);
 	line = get_line(stash);
 	stash = new_stash(stash);
