@@ -1,3 +1,6 @@
 [submodule "so_long"]
 	path = so_long
 	url = git@github.com:Hamzah004/so_long.git
+[submodule "minitalk"]
+	path = minitalk
+	url = git@github.com:Hamzah004/Minitalk.git
