@@ -7,3 +7,6 @@
 [submodule "GNL"]
 	path = GNL
 	url = git@github.com:Hamzah004/GNL.git
+[submodule "push_swap"]
+	path = push_swap
+	url = git@github.com:Hamzah004/push_swap.git
