@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME := libftgetnextline.a
+NAME := gnl.a
 CC := cc
 CFLAGS := -Wall -Werror -Wextra
 SRC := get_next_line.c \
