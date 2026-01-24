@@ -4,3 +4,6 @@
 [submodule "minitalk"]
 	path = minitalk
 	url = git@github.com:Hamzah004/Minitalk.git
+[submodule "GNL"]
+	path = GNL
+	url = git@github.com:Hamzah004/GNL.git
