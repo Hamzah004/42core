@@ -11,14 +11,10 @@
             "id": "f0d50364c3f958d2",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "get_next_line/README.md",
-                "mode": "preview",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "README"
+              "title": "New tab"
             }
           }
         ]
@@ -78,8 +74,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "f91d2997fbf32f91",
@@ -186,6 +181,7 @@
   },
   "active": "f0d50364c3f958d2",
   "lastOpenFiles": [
+    "push_swap/README.md",
     "get_next_line/Makefile~",
     "minitalk/README.md",
     "Untitled.base",
@@ -197,7 +193,6 @@
     "minitalk/libft/stWXixMe",
     "minitalk/libft/libft.a",
     "minitalk/libft/ft_split.o",
-    "minitalk/libft/ft_putnbr_fd.o",
     "so_long/README.md"
   ]
 }
