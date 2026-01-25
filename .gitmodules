@@ -10,3 +10,6 @@
 [submodule "push_swap"]
 	path = push_swap
 	url = git@github.com:Hamzah004/push_swap.git
+[submodule "philosopher"]
+	path = philosopher
+	url = git@github.com:Hamzah004/philosopher.git
